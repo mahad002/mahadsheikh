@@ -1,0 +1,99 @@
+{
+  "categories": [
+    {
+      "title": "Web Development",
+      "icons": [
+        { "name": "HTML5", "icon": "FaHtml5" },
+        { "name": "CSS3", "icon": "FaCss3" },
+        { "name": "JavaScript", "icon": "FaJs" },
+        { "name": "Angular", "icon": "FaAngular" },
+        { "name": "React", "icon": "FaReact" },
+        { "name": "Next.js", "icon": "SiNextdotjs" },
+        { "name": "WordPress", "icon": "FaWordpress" },
+        { "name": "Vue.js", "icon": "RiVuejsLine" },
+        { "name": "Bootstrap", "icon": "FaBootstrap" },
+        { "name": "Tailwind CSS", "icon": "SiTailwindcss" }
+      ]
+    },
+    {
+      "title": "UI/UX Design",
+      "icons": [
+        { "name": "Figma", "icon": "FaFigma" },
+        { "name": "Adobe Lightroom", "icon": "SiAdobelightroom" },
+        { "name": "Adobe Photoshop", "icon": "SiAdobephotoshop" },
+        { "name": "Canva", "icon": "SiCanva" },
+        { "name": "Sketch", "icon": "FaSketch" },
+        { "name": "InVision", "icon": "FaInvision" }
+      ]
+    },
+    {
+      "title": "Mobile Development",
+      "icons": [
+        { "name": "Flutter", "icon": "RiFlutterFill" },
+        { "name": "Firebase", "icon": "IoLogoFirebase" },
+        { "name": "React Native", "icon": "FaReact" },
+        { "name": "Swift", "icon": "FaSwift" },
+        { "name": "Kotlin", "icon": "SiKotlin" }
+      ]
+    },
+    {
+      "title": "Backend",
+      "icons": [
+        { "name": "Node.js", "icon": "FaNodeJs" },
+        { "name": "Express.js", "icon": "SiExpress" },
+        { "name": "SQL", "icon": "DiDatabase" },
+        { "name": "MySQL", "icon": "SiMysql" },
+        { "name": "PostgreSQL", "icon": "SiPostgresql" },
+        { "name": "Odoo", "icon": "AiOutlineGitlab" },
+        { "name": "Java", "icon": "FaJava" },
+        { "name": "Python", "icon": "FaPython" },
+        { "name": "C/C++", "icon": "SiCplusplus" },
+        { "name": "Ruby on Rails", "icon": "SiRubyonrails" },
+        { "name": "PHP", "icon": "FaPhp" },
+        { "name": "Laravel", "icon": "FaLaravel" }
+      ]
+    },
+    {
+      "title": "DevOps",
+      "icons": [
+        { "name": "Docker", "icon": "FaDocker" },
+        { "name": "Kubernetes", "icon": "SiKubernetes" },
+        { "name": "GitHub Actions", "icon": "AiOutlineGitlab" },
+        { "name": "Jenkins", "icon": "SiJenkins" },
+        { "name": "AWS", "icon": "FaAws" },
+        { "name": "Azure", "icon": "FaMicrosoft" },
+        { "name": "Terraform", "icon": "SiTerraform" }
+      ]
+    },
+    {
+      "title": "Testing",
+      "icons": [
+        { "name": "Cypress", "icon": "SiCypress" },
+        { "name": "Selenium", "icon": "SiSelenium" },
+        { "name": "JUnit", "icon": "DiDatabase" },
+        { "name": "Mocha", "icon": "SiMocha" },
+        { "name": "Jest", "icon": "SiJest" }
+      ]
+    },
+    {
+      "title": "Databases & BaaS",
+      "icons": [
+        { "name": "Firebase", "icon": "SiFirebase" },
+        { "name": "Supabase", "icon": "SiSupabase" },
+        { "name": "MongoDB", "icon": "SiMongodb" },
+        { "name": "Redis", "icon": "SiRedis" },
+        { "name": "DynamoDB", "icon": "SiAmazondynamodb" }
+      ]
+    },
+    {
+      "title": "AI & Machine Learning",
+      "icons": [
+        { "name": "TensorFlow", "icon": "SiTensorflow" },
+        { "name": "PyTorch", "icon": "SiPytorch" },
+        { "name": "Scikit-Learn", "icon": "SiScikitlearn" },
+        { "name": "Keras", "icon": "SiKeras" },
+        { "name": "OpenAI", "icon": "SiOpenai" }
+      ]
+    }
+  ]
+}

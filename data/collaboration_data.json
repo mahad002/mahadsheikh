@@ -1,0 +1,60 @@
+{
+  "reviews": [
+    {
+      "username": "Diana B.",
+      "country": "United Kingdom",
+      "country_code": "GB",
+      "rating": 5.0,
+      "review": "Exceptional delivery with remarkable attention to detail and ahead of schedule."
+    },
+    {
+      "username": "Michael S.",
+      "country": "United States",
+      "country_code": "US",
+      "rating": 5.0,
+      "review": "Outstanding technical expertise and professional communication throughout the project."
+    },
+    {
+      "username": "Ahmed K.",
+      "country": "United Arab Emirates",
+      "country_code": "AE",
+      "rating": 5.0,
+      "review": "Delivered high-quality solutions with excellent attention to requirements."
+    },
+    {
+      "username": "Sophie L.",
+      "country": "France",
+      "country_code": "FR",
+      "rating": 4.8,
+      "review": "Professional approach with great technical insights and timely delivery."
+    },
+    {
+      "username": "Raj P.",
+      "country": "India",
+      "country_code": "IN",
+      "rating": 5.0,
+      "review": "Exceptional problem-solving skills and dedication to project success."
+    }
+  ],
+  "metrics": {
+    "total_collaborations": 120,
+    "average_rating": 4.9,
+    "global_reach": 25,
+    "completion_rate": 98,
+    "regional_distribution": {
+      "North America": 35,
+      "Europe": 25,
+      "Asia Pacific": 20,
+      "Middle East": 15,
+      "Others": 5
+    },
+    "success_trend": {
+      "Jan": 95,
+      "Feb": 96,
+      "Mar": 94,
+      "Apr": 98,
+      "May": 97,
+      "Jun": 98
+    }
+  }
+}

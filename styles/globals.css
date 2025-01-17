@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root[data-theme="light"] {
+    --color-primary: 255 255 255;
+    --color-secondary: 245 247 250;
+    --color-text: 23 37 84;
+    --color-accent: 14 165 233;  /* Sky blue */
+    --color-muted: 71 85 105;
+    --color-border: 226 232 240;
+    --color-card: 255 255 255;
+    --color-background: 245 247 250;
+  }
+
+  :root[data-theme="dark"] {
+    --color-primary: 15 23 42;    /* Slate 900 */
+    --color-secondary: 30 41 59;  /* Slate 800 */
+    --color-text: 226 232 240;    /* Slate 200 */
+    --color-accent: 14 165 233;   /* Sky 500 */
+    --color-muted: 148 163 184;   /* Slate 400 */
+    --color-border: 51 65 85;     /* Slate 700 */
+    --color-card: 30 41 59;       /* Slate 800 */
+    --color-background: 15 23 42;  /* Slate 900 */
+  }
+
+  body {
+    @apply bg-background text-text transition-colors duration-200;
+  }
+
+  /* Custom Scrollbar Styles */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent/20 rounded-full hover:bg-accent/30 transition-colors duration-200;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--color-accent) / 0.2) transparent;
+  }
+
+  .card {
+    @apply bg-card border border-border rounded-xl shadow-lg transition-all duration-200;
+  }
+
+  .btn {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200
+           hover:transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-accent/90;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-text hover:bg-secondary/90;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 bg-secondary border border-border rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-200;
+  }
+
+  .nav-link {
+    @apply relative px-4 py-2 text-muted hover:text-text transition-colors duration-200
+           after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0
+           after:h-0.5 after:bg-accent after:transition-all after:duration-200
+           hover:after:w-full;
+  }
+
+  .nav-link.active {
+    @apply text-text after:w-full;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-bg {
+    @apply bg-gradient-to-br from-accent/20 via-background to-background;
+  }
+}

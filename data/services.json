@@ -1,0 +1,49 @@
+{
+  "services": [
+    {
+      "icon": "CgWebsite",
+      "title": "Web Development",
+      "description": "Craft visually appealing and highly functional websites for various purposes."
+    },
+    {
+      "icon": "RxCode",
+      "title": "Data Analysis",
+      "description": "Unlock insights from data to drive informed decision-making."
+    },
+    {
+      "icon": "RxMobile",
+      "title": "Mobile Development",
+      "description": "Build innovative mobile apps for iOS and Android platforms."
+    },
+    {
+      "icon": "FaCogs",
+      "title": "DevOps",
+      "description": "Streamline development processes and enhance collaboration."
+    },
+    {
+      "icon": "LuTestTube2",
+      "title": "Testing",
+      "description": "Ensure software quality and reliability through rigorous testing."
+    },
+    {
+      "icon": "FaNetworkWired",
+      "title": "Networking",
+      "description": "Design and optimize network infrastructure for maximum efficiency."
+    },
+    {
+      "icon": "FaUserCog",
+      "title": "Software Engineering",
+      "description": "Design scalable and robust software solutions to meet business needs."
+    },
+    {
+      "icon": "GiArtificialIntelligence",
+      "title": "AI Models",
+      "description": "Develop cutting-edge AI models to solve complex problems."
+    },
+    {
+      "icon": "LuBrain",
+      "title": "LLMs",
+      "description": "Implement and deploy advanced machine learning models for various applications."
+    }
+  ]
+}

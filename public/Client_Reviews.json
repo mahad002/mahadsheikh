@@ -1,0 +1,28 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "position": "CEO, Tech Corp",
+      "review": "Working with this team was an absolute pleasure. Their attention to detail and creative solutions exceeded our expectations.",
+      "rating": 5,
+      "avatar": "/t-avt-1.png"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "position": "Marketing Director",
+      "review": "The level of professionalism and expertise demonstrated throughout our project was outstanding.",
+      "rating": 5,
+      "avatar": "/t-avt-2.png"
+    },
+    {
+      "id": 3,
+      "name": "Mike Johnson",
+      "position": "Startup Founder",
+      "review": "They transformed our vision into reality with remarkable efficiency and creativity.",
+      "rating": 5,
+      "avatar": "/t-avt-3.png"
+    }
+  ]
+}

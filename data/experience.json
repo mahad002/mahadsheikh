@@ -1,0 +1,25 @@
+{
+  "experience": [
+    {
+      "title": "Full Stack Developer",
+      "company": "DETECON Consulting",
+      "period": "2023",
+      "description": "Led development of enterprise applications and provided technical consulting services",
+      "technologies": ["React", "Node.js", "AWS", "PostgreSQL"]
+    },
+    {
+      "title": "Full Stack Developer",
+      "company": "Cognitive Healthcare International",
+      "period": "2023",
+      "description": "Built scalable healthcare solutions and patient management systems",
+      "technologies": ["Next.js", "Express", "MongoDB", "Docker"]
+    },
+    {
+      "title": "Flutter Developer",
+      "company": "Cognitive Healthcare International",
+      "period": "2022",
+      "description": "Developed cross-platform mobile applications for healthcare sector",
+      "technologies": ["Flutter", "Firebase", "REST APIs"]
+    }
+  ]
+}
