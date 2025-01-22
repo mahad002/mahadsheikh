@@ -65,22 +65,6 @@
           }
       },
       {
-          "title": "Smart Home Automation",
-          "description": "IoT-based home automation system with real-time monitoring and control",
-          "tech": [
-              "React",
-              "Node.js",
-              "MQTT",
-              "MongoDB"
-          ],
-          "image": "/projects/smarthome.jpg",
-          "link": "https://example.com/smarthome",
-          "category": "IoT",
-          "metrics": {
-              
-          }
-      },
-      {
           "title": "Educational Platform",
           "description": "Interactive learning management system with video courses and real-time assessments",
           "tech": [
