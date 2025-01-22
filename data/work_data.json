@@ -13,9 +13,7 @@
           "link": "https://example.com/ecommerce",
           "category": "Web Development",
           "metrics": {
-              "users": "10K+",
-              "transactions": "50K+",
-              "uptime": "99.9%"
+              
           }
       },
       {
@@ -31,9 +29,7 @@
           "link": "https://example.com/healthcare",
           "category": "Enterprise Solutions",
           "metrics": {
-              "patients": "5K+",
-              "hospitals": "10+",
-              "records": "50K+"
+              
           }
       },
       {
@@ -49,9 +45,7 @@
           "link": "https://example.com/analytics",
           "category": "Data Science",
           "metrics": {
-              "accuracy": "98%",
-              "processing": "1M+",
-              "insights": "100K+"
+              
           }
       },
       {
@@ -67,9 +61,7 @@
           "link": "https://example.com/fitness",
           "category": "Mobile Development",
           "metrics": {
-              "downloads": "100K+",
-              "active_users": "50K+",
-              "workouts": "1M+"
+              
           }
       },
       {
@@ -85,9 +77,7 @@
           "link": "https://example.com/smarthome",
           "category": "IoT",
           "metrics": {
-              "devices": "1K+",
-              "commands": "100K+",
-              "uptime": "99.9%"
+              
           }
       },
       {
@@ -103,9 +93,7 @@
           "link": "https://example.com/education",
           "category": "EdTech",
           "metrics": {
-              "students": "10K+",
-              "courses": "500+",
-              "completion": "85%"
+              
           }
       },
       {
@@ -121,9 +109,7 @@
           "link": "https://example.com/supplychain",
           "category": "Enterprise Solutions",
           "metrics": {
-              "transactions": "1M+",
-              "partners": "100+",
-              "accuracy": "99.9%"
+              
           }
       },
       {
@@ -139,9 +125,7 @@
           "link": "https://example.com/social",
           "category": "Data Science",
           "metrics": {
-              "platforms": "5+",
-              "posts": "10M+",
-              "accuracy": "95%"
+              
           }
       },
       {
@@ -157,9 +141,7 @@
           "link": "https://movie-app-frontend-98v2qt0th-mahad002s-projects.vercel.app/",
           "category": "Web Development",
           "metrics": {
-              "users": "50K+",
-              "reviews": "10K+",
-              "ratings": "1M+"
+              
           }
       },
       {
@@ -173,8 +155,7 @@
           "link": "",
           "category": "Generative AI",
           "metrics": {
-              "requests": "100K+",
-              "accuracy": "98%"
+              
           }
       },
       {
@@ -189,9 +170,7 @@
           "link": "",
           "category": "Mobile Development",
           "metrics": {
-              "hospitals": "20+",
-              "patients": "50K+",
-              "efficiency": "90%"
+        
           }
       }
   ],
@@ -200,7 +179,6 @@
       "Enterprise Solutions",
       "Data Science",
       "Mobile Development",
-      "IoT",
       "EdTech"
   ],
   "technologies": {
