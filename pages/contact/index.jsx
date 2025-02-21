@@ -25,6 +25,11 @@ const Contact = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const handleRedirect = (url) => {
+    window.open(url, "_blank");
+  };
+  
+
   return (
     <div className="h-full">
       <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
