@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
-import { FaWhatsapp, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa"; // Import icons from react-icons library
+import { FaWhatsapp, FaInstagram, FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa"; // Import icons from react-icons library
 
 import { fadeIn } from "../../variants";
 import { useState } from "react";
@@ -105,6 +105,14 @@ const Contact = () => {
               &nbsp;Whatsapp
               <BsArrowRight className="ml-2 text-[22px]" />
             </button>
+             {/* <div className="absolute bottom-5 left-5"> */}
+              <button
+                className="flex items-center gap-2 p-3 rounded-full border border-white/50 bg-black text-white hover:border-accent transition-all duration-300"
+                onClick={() => handleRedirect("https://github.com/mahad002")}
+              >
+                <FaGithub className="text-[24px]" />
+              </button>
+            {/* </div> */}
           </motion.div>
 
         </div>
