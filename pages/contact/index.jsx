@@ -79,7 +79,7 @@ const Contact = () => {
             {/* LinkedIn Mahad */}
             <button
               className="btn rounded-full border border-white/50 max-w-[300px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent"
-              onClick={() => handleRedirect("https://www.linkedin.com/in/muhammad-mahad-sheikh-989a2924b/")}
+              onClick={() => handleRedirect("https://www.linkedin.com/in/mahad-sheikh-989a2924b/")}
             >
               <FaLinkedin className="text-[22px] text-blue-500" />
               &nbsp;LinkedIn
