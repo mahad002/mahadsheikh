@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { BsArrowRight } from "react-icons/bs";
-import { FaWhatsapp, FaInstagram, FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa"; // Import icons from react-icons library
+import { FaWhatsapp, FaInstagram, FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa"; 
 
 import { fadeIn } from "../../variants";
 import { useState } from "react";
