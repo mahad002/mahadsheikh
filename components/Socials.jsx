@@ -33,7 +33,7 @@ export const socialData = [
   },
   {
     name: "LinkedIn",
-    link: "www.linkedin.com/in/mahad-sheikh-989a2924b",
+    link: "https://www.linkedin.com/in/mahad-sheikh-989a2924b",
     Icon: FaLinkedinIn,
   },
   {
