@@ -164,8 +164,6 @@ const TestimonialSlider = () => {
                 {/* Review */}
                 <div className="relative">
                   <FaQuoteLeft className="text-5xl text-accent/20 absolute -top-4 -left-2" />
-                  <p className="text-muted text-lg leading-relaxed pl-12 italic">
-                    "{review.review}"
                   </p>
                 </div>
               </div>
