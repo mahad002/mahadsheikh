@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
@@ -193,11 +193,28 @@ function Stats({ data }) {
 
 // Main component
 export default function WorldAnalytics() {
+  const [isClient, setIsClient] = useState(false);
   const clientData = useClientData();
   
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const handleCountryClick = (country) => {
     console.log('Country clicked:', country);
   };
+
+  // Don't render on server
+  if (!isClient) {
+    return (
+      <div className="w-full h-full min-h-[300px] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mb-4" />
+          <p className="text-muted">Loading visualization...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-full min-h-[300px]">
