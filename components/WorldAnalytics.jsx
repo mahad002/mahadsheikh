@@ -137,7 +137,7 @@ function InteractiveGlobe({ clientData, onCountryClick }) {
         return (
           <group key={index} position={position}>
             <mesh onClick={() => onCountryClick(country)}>
-              <sphereGeometry args={[markerSize, 16, 16]} />
+              <sphereGeometry args={[markerSize * 0.5, 16, 16]} />
               <meshBasicMaterial color={theme === 'dark' ? '#60A5FA' : '#3B82F6'} />
             </mesh>
             <Billboard
