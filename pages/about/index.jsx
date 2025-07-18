@@ -24,7 +24,7 @@ const calculateExperience = () => {
 // Import specific icon sets
 import { FaHtml5, FaCss3, FaJs, FaReact, FaWordpress, FaFigma, FaDocker, 
   FaJava, FaPython, FaNodeJs, FaAngular, FaSketch, FaInvision, FaSwift, 
-  FaPhp, FaLaravel, FaAws, FaMicrosoft, FaBootstrap } from 'react-icons/fa';
+  FaPhp, FaLaravel, FaAws, FaMicrosoft, FaBootstrap, FaCode } from 'react-icons/fa';
 import { SiNextdotjs, SiFramer, SiAdobelightroom, SiAdobephotoshop, 
   SiCanva, SiMysql, SiPostgresql, SiCplusplus, SiFirebase, SiSupabase, 
   SiKubernetes, SiJenkins, SiSelenium, SiCypress, SiExpress, SiTailwindcss, 
@@ -40,7 +40,7 @@ import { AiOutlineGitlab } from 'react-icons/ai';
 const iconComponents = {
   FaHtml5, FaCss3, FaJs, FaReact, FaWordpress, FaFigma, FaDocker, 
   FaJava, FaPython, FaNodeJs, FaAngular, FaSketch, FaInvision, 
-  FaSwift, FaPhp, FaLaravel, FaAws, FaMicrosoft, FaBootstrap,
+  FaSwift, FaPhp, FaLaravel, FaAws, FaMicrosoft, FaBootstrap, FaCode,
   SiNextdotjs, SiFramer, SiAdobelightroom, SiAdobephotoshop, 
   SiCanva, SiMysql, SiPostgresql, SiCplusplus, SiFirebase, 
   SiSupabase, SiKubernetes, SiJenkins, SiSelenium, SiCypress, 
