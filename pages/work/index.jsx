@@ -22,12 +22,6 @@ const WorldAnalytics = dynamic(() => import('../../components/WorldAnalytics'), 
 });
 
 const Work = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-    rootMargin: '-50px 0px'
-  });
-
   return (
     <div className='min-h-screen bg-primary/30 py-24 sm:py-32 overflow-hidden'>
       {/* <Circles /> */}
@@ -51,10 +45,9 @@ const Work = () => {
 
         {/* Portfolio Grid */}
         <motion.div
-          ref={ref}
           variants={fadeIn('up', 0.4)}
           initial='hidden'
-          animate={inView ? 'show' : 'hidden'}
+          animate='show'
           className='mb-12 sm:mb-20'
           style={{ 
             willChange: 'opacity, transform'
