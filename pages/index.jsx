@@ -10,6 +10,13 @@ import timelineData from '../data/timeline.json';
 import statsData from '../data/stats.json';
 import servicesData from '../data/services.json';
 
+// Calculate dynamic years of experience (starting from 2022)
+const calculateExperience = () => {
+  const startYear = 2022;
+  const currentYear = new Date().getFullYear();
+  return Math.max(1, currentYear - startYear + 1);
+};
+
 const Home = () => {
   const [heroRef, heroInView] = useInView({
     threshold: 0.3,
@@ -172,7 +179,11 @@ const Home = () => {
       <section className="py-20 bg-gradient-to-b from-background via-background/50 to-background relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {statsData.stats.map((stat, index) => (
+            {statsData.stats.map((stat, index) => {
+              // Use dynamic experience calculation for the first stat
+              const displayValue = index === 0 ? calculateExperience() : stat.value;
+              
+              return (
               <motion.div
                 key={index}
                 variants={fadeIn("up", 0.2 * index)}
@@ -182,11 +193,11 @@ const Home = () => {
                 className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
                 <div className="text-4xl font-bold text-accent mb-2">
-                  {stat.value}{stat.suffix}
+                  {displayValue}{stat.suffix}
                 </div>
                 <div className="text-muted">{stat.label}</div>
               </motion.div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -246,7 +257,7 @@ const Home = () => {
       </section>
 
       {/* Timeline Section */}
-      {/* <section ref={timelineRef} className="py-20 relative z-10">
+      <section ref={timelineRef} className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <motion.h2
             variants={fadeIn("up", 0.2)}
@@ -259,14 +270,14 @@ const Home = () => {
           </motion.h2>
 
           <div className="relative">
-            Timeline Line
+            {/* Timeline Line */}
             <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-border" />
 
-            Timeline Items
+            {/* Timeline Items */}
             {timelineData.timeline.map((item, index) => (
               <motion.div
                 key={index}
-                variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.1 * index)}
+                variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.2 * index)}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
@@ -274,7 +285,7 @@ const Home = () => {
                   index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
               >
-                Content
+                {/* Content */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
                   <div className="bg-card/50 backdrop-blur-sm p-6 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300">
                     <div className="flex items-center gap-2 mb-2">
@@ -286,12 +297,12 @@ const Home = () => {
                   </div>
                 </div>
 
-                Year Marker
+                {/* Year Marker */}
                 <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-accent/20 border-4 border-accent flex items-center justify-center">
                   <div className="w-2 h-2 rounded-full bg-accent" />
                 </div>
 
-                Year
+                {/* Year */}
                 <div className="absolute left-12 md:left-1/2 transform md:translate-x-8 bg-accent/10 px-4 py-1 rounded-full text-sm font-medium text-accent">
                   {item.year}
                 </div>
@@ -299,7 +310,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };
