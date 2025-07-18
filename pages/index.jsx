@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
 import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt, 
   HiOutlineClock, HiOutlineChartBar, HiOutlineBriefcase } from 'react-icons/hi';
 import ParticlesContainer from "../components/ParticlesContainer";
@@ -18,20 +17,10 @@ const calculateExperience = () => {
 };
 
 const Home = () => {
-  const [heroRef, heroInView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  });
-
-  const [timelineRef, timelineInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: true
-  });
-
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen">
+      <section className="relative min-h-screen">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="h-full md:h-screen">
@@ -188,8 +177,7 @@ const Home = () => {
                 key={index}
                 variants={fadeIn("up", 0.2 * index)}
                 initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
+                animate="show"
                 className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
                 <div className="text-4xl font-bold text-accent mb-2">
@@ -208,8 +196,7 @@ const Home = () => {
           <motion.h2
             variants={fadeIn("up", 0.2)}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+            animate="show"
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
             Featured <span className="text-accent">Services</span>
@@ -221,8 +208,7 @@ const Home = () => {
                 key={index}
                 variants={fadeIn("up", 0.2 * index)}
                 initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
+                animate="show"
                 className="group bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
                 <div className="mb-6 w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
@@ -241,8 +227,7 @@ const Home = () => {
           <motion.div
             variants={fadeIn("up", 0.6)}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+            animate="show"
             className="text-center mt-12"
           >
             <a 
@@ -257,13 +242,12 @@ const Home = () => {
       </section>
 
       {/* Timeline Section */}
-      <section ref={timelineRef} className="py-20 relative z-10">
+      <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <motion.h2
             variants={fadeIn("up", 0.2)}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+            animate="show"
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
             Professional <span className="text-accent">Journey</span>
@@ -279,8 +263,7 @@ const Home = () => {
                 key={index}
                 variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.2 * index)}
                 initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
+                animate="show"
                 className={`relative flex md:justify-between items-start mb-12 ${
                   index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}

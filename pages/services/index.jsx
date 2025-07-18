@@ -1,17 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
 import Bulb from "../../components/Bulb";
 import Circles from "../../components/Circles";
 import ServiceSlider from "../../components/ServiceSlider";
 import { fadeIn } from "../../variants";
 
 const Services = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.2,
-    triggerOnce: true
-  });
-
   return (
     <div className="h-full py-36 flex items-center">
       {/* <Circles /> */}
@@ -42,10 +36,9 @@ const Services = () => {
 
           {/* Services Grid */}
           <motion.div
-            ref={ref}
             variants={fadeIn("up", 0.6)}
             initial="hidden"
-            animate={inView ? "show" : "hidden"}
+            animate="show"
             className="w-full"
           >
             <ServiceSlider />

@@ -11,10 +11,6 @@ const WorkSlider = () => {
   const { theme } = useTheme();
   const [activeCategory, setActiveCategory] = useState('All');
   const [hoveredProject, setHoveredProject] = useState(null);
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
 
   const filteredProjects = activeCategory === 'All' 
     ? workData.projects 
@@ -38,9 +34,8 @@ const WorkSlider = () => {
 
   return (
     <motion.div
-      ref={ref}
       initial="hidden"
-      animate={inView ? "show" : "hidden"}
+      animate="show"
       variants={container}
       className="space-y-12"
     >
