@@ -153,7 +153,7 @@ function InteractiveGlobe({ clientData, onCountryClick }) {
                 anchorY="bottom"
                 outlineWidth={0.001}
                 outlineColor={theme === 'dark' ? '#000000' : '#ffffff'}
-                    >
+              >
                 {`${country.country} (${country.count})`}
               </Text>
             </Billboard>
