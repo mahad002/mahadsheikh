@@ -6,6 +6,9 @@ import * as THREE from 'three';
 import { useTheme } from './ThemeProvider';
 import clientReviews from '../data/Client_Reviews.json';
 
+// World map texture URL from a reliable CDN
+const WORLD_TEXTURE_URL = 'https://raw.githubusercontent.com/turban/webgl-earth/master/images/2_no_clouds_4k.jpg';
+
 // Country coordinates mapping
 const COUNTRY_COORDINATES = {
   "United States": { lat: 37.0902, lon: -95.7129 },
@@ -81,19 +84,20 @@ function InteractiveGlobe({ clientData, onCountryClick }) {
   // Calculate max orders for scaling
   const maxOrders = Math.max(...clientData.map(country => country.count));
 
-  // Create materials
+  // Create materials with world map texture
   const materials = useMemo(() => {
+    const textureLoader = new THREE.TextureLoader();
+    const worldTexture = textureLoader.load(WORLD_TEXTURE_URL);
+    worldTexture.colorSpace = THREE.SRGBColorSpace;
+
     return {
-      globe: new THREE.MeshPhysicalMaterial({
-        color: theme === 'dark' ? '#3B82F6' : '#60A5FA',
-        metalness: 0.1,
-        roughness: 0.2,
-        transmission: 0.95,
-        thickness: 0.5,
+      globe: new THREE.MeshStandardMaterial({
+        map: worldTexture,
+        color: theme === 'dark' ? '#ffffff' : '#f0f0f0',
+        metalness: 0.0,
+        roughness: 0.6,
         transparent: true,
-        opacity: 0.3,
-        clearcoat: 1.0,
-        clearcoatRoughness: 0.1
+        opacity: 0.9
       }),
       points: new THREE.PointsMaterial({
         size: 0.05,
