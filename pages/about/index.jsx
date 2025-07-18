@@ -14,6 +14,13 @@ import experienceData from '../../data/experience.json';
 import credentialsData from '../../data/credentials.json';
 import statsData from '../../data/stats.json';
 
+// Calculate dynamic years of experience (starting from 2022)
+const calculateExperience = () => {
+  const startYear = 2022;
+  const currentYear = new Date().getFullYear();
+  return Math.max(1, currentYear - startYear + 1);
+};
+
 // Import specific icon sets
 import { FaHtml5, FaCss3, FaJs, FaReact, FaWordpress, FaFigma, FaDocker, 
   FaJava, FaPython, FaNodeJs, FaAngular, FaSketch, FaInvision, FaSwift, 
@@ -81,7 +88,7 @@ const About = () => {
 
   return (
     <div className="h-full py-32 text-center xl:text-left">
-      {/* <Circles /> */}
+      <Circles />
 
       <motion.div
         variants={fadeIn("right", 0.2)}
@@ -124,17 +131,21 @@ const About = () => {
             className="hidden md:flex md:max-w-xl xl:max-w-none mx-auto xl:mx-0 mb-8"
           >
             <div className="flex flex-1 xl:gap-x-6">
-              {statsData.stats.map((stat, index) => (
+              {statsData.stats.map((stat, index) => {
+                // Use dynamic experience calculation for the first stat
+                const displayValue = index === 0 ? calculateExperience() : stat.value;
+                
+                return (
                 <div key={index} className="relative flex-1 after:w-[1px] after:h-full after:bg-border after:absolute after:top-0 after:right-0 last:after:hidden">
                   <div className="text-2xl xl:text-4xl font-extrabold text-accent mb-2">
-                    <CountUp start={0} end={stat.value} duration={5} />
+                    <CountUp start={0} end={displayValue} duration={5} />
                     {stat.suffix}
                   </div>
                   <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-w-[100px] text-muted">
                     {stat.label}
                   </div>
                 </div>
-              ))}
+              )})}
             </div>
           </motion.div>
         </div>
