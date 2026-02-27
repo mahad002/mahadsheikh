@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export default function Layout({ children }) {
@@ -21,8 +21,16 @@ export default function Layout({ children }) {
     setMounted(true);
   }, []);
 
+  // Render minimal shell immediately for faster FCP; avoid blank screen until mount
   if (!mounted) {
-    return null;
+    return (
+      <div className={`${sora.variable} font-sora min-h-screen bg-background`}>
+        <Header />
+        <Nav />
+        <main className="flex-grow relative min-h-[60vh]" />
+        <Footer />
+      </div>
+    );
   }
 
   return (

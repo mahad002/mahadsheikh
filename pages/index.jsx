@@ -1,37 +1,23 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
-import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt, 
-  HiOutlineClock, HiOutlineChartBar, HiOutlineBriefcase } from 'react-icons/hi';
-import ParticlesContainer from "../components/ParticlesContainer";
-import ThreeScene from "../components/ThreeScene";
+import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt } from 'react-icons/hi';
 import { fadeIn } from "../variants";
-import timelineData from '../data/timeline.json';
 import statsData from '../data/stats.json';
 import servicesData from '../data/services.json';
 
 const Home = () => {
-  const [heroRef, heroInView] = useInView({
-    threshold: 0.3,
-    triggerOnce: true
-  });
-
-  const [timelineRef, timelineInView] = useInView({
-    threshold: 0.2,
-    triggerOnce: true
-  });
+  const [heroRef] = useInView({ threshold: 0.3, triggerOnce: true });
+  const [statsRef, statsInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [servicesRef, servicesInView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
     <div className="relative">
-      {/* Hero Section */}
+      {/* Hero Section - static gradient (no Three.js for fastest load) */}
       <section ref={heroRef} className="relative min-h-screen">
-        {/* Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="h-full md:h-screen">
-            <ThreeScene />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
-        </div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-accent/10 via-background to-background" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,var(--tw-gradient-stops))] from-accent/20 to-transparent" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
 
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 min-h-screen">
@@ -169,7 +155,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-b from-background via-background/50 to-background relative z-10">
+      <section ref={statsRef} className="py-20 bg-gradient-to-b from-background via-background/50 to-background relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {statsData.stats.map((stat, index) => (
@@ -177,7 +163,7 @@ const Home = () => {
                 key={index}
                 variants={fadeIn("up", 0.2 * index)}
                 initial="hidden"
-                whileInView="show"
+                animate={statsInView ? "show" : "hidden"}
                 viewport={{ once: true }}
                 className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
@@ -192,12 +178,12 @@ const Home = () => {
       </section>
 
       {/* Featured Services */}
-      <section className="py-20 relative z-10">
+      <section ref={servicesRef} className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <motion.h2
             variants={fadeIn("up", 0.2)}
             initial="hidden"
-            whileInView="show"
+            animate={servicesInView ? "show" : "hidden"}
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
@@ -210,7 +196,7 @@ const Home = () => {
                 key={index}
                 variants={fadeIn("up", 0.2 * index)}
                 initial="hidden"
-                whileInView="show"
+                animate={servicesInView ? "show" : "hidden"}
                 viewport={{ once: true }}
                 className="group bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
@@ -230,7 +216,7 @@ const Home = () => {
           <motion.div
             variants={fadeIn("up", 0.6)}
             initial="hidden"
-            whileInView="show"
+            animate={servicesInView ? "show" : "hidden"}
             viewport={{ once: true }}
             className="text-center mt-12"
           >

@@ -1,38 +1,29 @@
 "use client";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Bulb from '../../components/Bulb';
-import Circles from '../../components/Circles';
 import WorkSlider from '../../components/WorkSlider';
 import { fadeIn } from '../../variants';
 import workData from '../../data/work_data.json';
 
-// Dynamically import WorldAnalytics with no SSR
 const WorldAnalytics = dynamic(() => import('../../components/WorldAnalytics'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[600px] flex items-center justify-center">
-      <div className="text-center">
-        <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mb-4" />
-        <p className="text-muted">Loading visualization...</p>
-      </div>
+    <div className="w-full h-[400px] flex items-center justify-center">
+      <div className="w-10 h-10 border-2 border-accent border-t-transparent rounded-full animate-spin" />
     </div>
-  )
+  ),
 });
 
 const Work = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-    rootMargin: '-50px 0px'
-  });
+  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true, rootMargin: '-50px 0px' });
+  const [showAnalytics, setShowAnalytics] = useState(false);
 
   return (
     <div className='min-h-screen bg-primary/30 py-24 sm:py-32 overflow-hidden'>
-      {/* <Circles /> */}
       <div className='container mx-auto px-4'>
-        {/* Hero Section */}
         <motion.div
           variants={fadeIn('down', 0.2)}
           initial='hidden'
@@ -49,37 +40,41 @@ const Work = () => {
           </p>
         </motion.div>
 
-        {/* Portfolio Grid */}
         <motion.div
           ref={ref}
           variants={fadeIn('up', 0.4)}
           initial='hidden'
           animate={inView ? 'show' : 'hidden'}
           className='mb-12 sm:mb-20'
-          style={{ 
-            willChange: 'opacity, transform'
-          }}
         >
           <WorkSlider />
         </motion.div>
 
-        {/* Analytics Section */}
+        {/* Analytics: load only when user opts in (saves ~3D bundle on initial /work load) */}
         <motion.div
           variants={fadeIn('up', 0.6)}
           initial='hidden'
           animate='show'
-          exit='hidden'
           className='bg-card rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm border border-border'
-          style={{ 
-            willChange: 'opacity, transform'
-          }}
         >
           <h2 className='text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12'>
             Global <span className='text-accent'>Impact</span>
           </h2>
-          <div className='w-full aspect-[16/9] sm:aspect-[2/1] md:aspect-auto md:h-[600px] lg:h-[800px]'>
-            <WorldAnalytics />
-          </div>
+          {!showAnalytics ? (
+            <div className='w-full aspect-video sm:h-[400px] flex items-center justify-center'>
+              <button
+                type='button'
+                onClick={() => setShowAnalytics(true)}
+                className='btn btn-primary px-8 py-4 rounded-full'
+              >
+                Load global impact visualization
+              </button>
+            </div>
+          ) : (
+            <div className='w-full aspect-[16/9] sm:aspect-[2/1] md:aspect-auto md:h-[600px] lg:h-[800px]'>
+              <WorldAnalytics />
+            </div>
+          )}
         </motion.div>
       </div>
       <Bulb />

@@ -1,8 +1,17 @@
 "use client";
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../variants';
-import TestimonialSlider from '../../components/TestimonialSlider';
 import { HiOutlineSpeakerphone } from 'react-icons/hi';
+
+const TestimonialSlider = dynamic(() => import('../../components/TestimonialSlider'), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[400px] flex items-center justify-center">
+      <div className="w-10 h-10 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+    </div>
+  ),
+});
 
 const Testimonials = () => {
   return (

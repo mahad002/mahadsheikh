@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { BsArrowRight } from 'react-icons/bs';
 import { HiOutlineFire, HiOutlineLightningBolt, HiOutlineSparkles } from 'react-icons/hi';
@@ -115,11 +116,15 @@ const WorkSlider = () => {
               willChange: 'transform, opacity'
             }}
           >
-            {/* Project Image with Parallax Effect */}
+            {/* Project Image - next/image for optimization + lazy load */}
             <div className="aspect-video relative overflow-hidden">
-              <div 
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${project.image})` }}
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
