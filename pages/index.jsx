@@ -1,23 +1,32 @@
 "use client";
 import { motion } from "framer-motion";
-import { useInView } from 'react-intersection-observer';
-import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt } from 'react-icons/hi';
+import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt, 
+  HiOutlineClock, HiOutlineChartBar, HiOutlineBriefcase } from 'react-icons/hi';
+import ParticlesContainer from "../components/ParticlesContainer";
+import ThreeScene from "../components/ThreeScene";
 import { fadeIn } from "../variants";
 import statsData from '../data/stats.json';
 import servicesData from '../data/services.json';
 
-const Home = () => {
-  const [heroRef] = useInView({ threshold: 0.3, triggerOnce: true });
-  const [statsRef, statsInView] = useInView({ threshold: 0.1, triggerOnce: true });
-  const [servicesRef, servicesInView] = useInView({ threshold: 0.1, triggerOnce: true });
+// Calculate dynamic years of experience (starting from 2022)
+const calculateExperience = () => {
+  const startYear = 2022;
+  const currentYear = new Date().getFullYear();
+  return Math.max(1, currentYear - startYear + 1);
+};
 
+const Home = () => {
   return (
     <div className="relative">
-      {/* Hero Section - static gradient (no Three.js for fastest load) */}
-      <section ref={heroRef} className="relative min-h-screen">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-accent/10 via-background to-background" />
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,var(--tw-gradient-stops))] from-accent/20 to-transparent" />
-        <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
+      {/* Hero Section */}
+      <section className="relative min-h-screen">
+        {/* Background Elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="h-full md:h-screen">
+            <ThreeScene />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
+        </div>
 
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-4 min-h-screen">
@@ -158,21 +167,24 @@ const Home = () => {
       <section ref={statsRef} className="py-20 bg-gradient-to-b from-background via-background/50 to-background relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {statsData.stats.map((stat, index) => (
+            {statsData.stats.map((stat, index) => {
+              // Use dynamic experience calculation for the first stat
+              const displayValue = index === 0 ? calculateExperience() : stat.value;
+              
+              return (
               <motion.div
                 key={index}
                 variants={fadeIn("up", 0.2 * index)}
                 initial="hidden"
-                animate={statsInView ? "show" : "hidden"}
-                viewport={{ once: true }}
+                animate="show"
                 className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
                 <div className="text-4xl font-bold text-accent mb-2">
-                  {stat.value}{stat.suffix}
+                  {displayValue}{stat.suffix}
                 </div>
                 <div className="text-muted">{stat.label}</div>
               </motion.div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -183,8 +195,7 @@ const Home = () => {
           <motion.h2
             variants={fadeIn("up", 0.2)}
             initial="hidden"
-            animate={servicesInView ? "show" : "hidden"}
-            viewport={{ once: true }}
+            animate="show"
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
             Featured <span className="text-accent">Services</span>
@@ -196,8 +207,7 @@ const Home = () => {
                 key={index}
                 variants={fadeIn("up", 0.2 * index)}
                 initial="hidden"
-                animate={servicesInView ? "show" : "hidden"}
-                viewport={{ once: true }}
+                animate="show"
                 className="group bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
                 <div className="mb-6 w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
@@ -216,8 +226,7 @@ const Home = () => {
           <motion.div
             variants={fadeIn("up", 0.6)}
             initial="hidden"
-            animate={servicesInView ? "show" : "hidden"}
-            viewport={{ once: true }}
+            animate="show"
             className="text-center mt-12"
           >
             <a 
@@ -232,35 +241,33 @@ const Home = () => {
       </section>
 
       {/* Timeline Section */}
-      {/* <section ref={timelineRef} className="py-20 relative z-10">
+      <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <motion.h2
             variants={fadeIn("up", 0.2)}
             initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
+            animate="show"
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
             Professional <span className="text-accent">Journey</span>
           </motion.h2>
 
           <div className="relative">
-            Timeline Line
+            {/* Timeline Line */}
             <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-border" />
 
-            Timeline Items
+            {/* Timeline Items */}
             {timelineData.timeline.map((item, index) => (
               <motion.div
                 key={index}
-                variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.1 * index)}
+                variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.2 * index)}
                 initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
+                animate="show"
                 className={`relative flex md:justify-between items-start mb-12 ${
                   index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
               >
-                Content
+                {/* Content */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
                   <div className="bg-card/50 backdrop-blur-sm p-6 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300">
                     <div className="flex items-center gap-2 mb-2">
@@ -272,12 +279,12 @@ const Home = () => {
                   </div>
                 </div>
 
-                Year Marker
+                {/* Year Marker */}
                 <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-accent/20 border-4 border-accent flex items-center justify-center">
                   <div className="w-2 h-2 rounded-full bg-accent" />
                 </div>
 
-                Year
+                {/* Year */}
                 <div className="absolute left-12 md:left-1/2 transform md:translate-x-8 bg-accent/10 px-4 py-1 rounded-full text-sm font-medium text-accent">
                   {item.year}
                 </div>
@@ -285,7 +292,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };

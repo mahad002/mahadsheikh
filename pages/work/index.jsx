@@ -1,7 +1,6 @@
 "use client";
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import Bulb from '../../components/Bulb';
 import WorkSlider from '../../components/WorkSlider';
@@ -18,9 +17,7 @@ const WorldAnalytics = dynamic(() => import('../../components/WorldAnalytics'), 
 });
 
 const Work = () => {
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true, rootMargin: '-50px 0px' });
   const [showAnalytics, setShowAnalytics] = useState(false);
-
   return (
     <div className='min-h-screen bg-primary/30 py-24 sm:py-32 overflow-hidden'>
       <div className='container mx-auto px-4'>
@@ -41,10 +38,9 @@ const Work = () => {
         </motion.div>
 
         <motion.div
-          ref={ref}
           variants={fadeIn('up', 0.4)}
           initial='hidden'
-          animate={inView ? 'show' : 'hidden'}
+          animate='show'
           className='mb-12 sm:mb-20'
         >
           <WorkSlider />

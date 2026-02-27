@@ -1,10 +1,13 @@
 "use client";
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Text, Billboard } from '@react-three/drei';
 import * as THREE from 'three';
 import { useTheme } from './ThemeProvider';
 import clientReviews from '../data/Client_Reviews.json';
+
+// World map texture URL from a reliable CDN
+const WORLD_TEXTURE_URL = 'https://raw.githubusercontent.com/turban/webgl-earth/master/images/2_no_clouds_4k.jpg';
 
 // Country coordinates mapping
 const COUNTRY_COORDINATES = {
@@ -81,19 +84,20 @@ function InteractiveGlobe({ clientData, onCountryClick }) {
   // Calculate max orders for scaling
   const maxOrders = Math.max(...clientData.map(country => country.count));
 
-  // Create materials
+  // Create materials with world map texture
   const materials = useMemo(() => {
+    const textureLoader = new THREE.TextureLoader();
+    const worldTexture = textureLoader.load(WORLD_TEXTURE_URL);
+    worldTexture.colorSpace = THREE.SRGBColorSpace;
+
     return {
-      globe: new THREE.MeshPhysicalMaterial({
-        color: theme === 'dark' ? '#3B82F6' : '#60A5FA',
-        metalness: 0.1,
-        roughness: 0.2,
-        transmission: 0.95,
-        thickness: 0.5,
+      globe: new THREE.MeshStandardMaterial({
+        map: worldTexture,
+        color: theme === 'dark' ? '#ffffff' : '#f0f0f0',
+        metalness: 0.0,
+        roughness: 0.6,
         transparent: true,
-        opacity: 0.3,
-        clearcoat: 1.0,
-        clearcoatRoughness: 0.1
+        opacity: 0.9
       }),
       points: new THREE.PointsMaterial({
         size: 0.05,
@@ -133,7 +137,7 @@ function InteractiveGlobe({ clientData, onCountryClick }) {
         return (
           <group key={index} position={position}>
             <mesh onClick={() => onCountryClick(country)}>
-              <sphereGeometry args={[markerSize, 16, 16]} />
+              <sphereGeometry args={[markerSize * 0.5, 16, 16]} />
               <meshBasicMaterial color={theme === 'dark' ? '#60A5FA' : '#3B82F6'} />
             </mesh>
             <Billboard
@@ -149,7 +153,7 @@ function InteractiveGlobe({ clientData, onCountryClick }) {
                 anchorY="bottom"
                 outlineWidth={0.001}
                 outlineColor={theme === 'dark' ? '#000000' : '#ffffff'}
-                    >
+              >
                 {`${country.country} (${country.count})`}
               </Text>
             </Billboard>
@@ -193,11 +197,28 @@ function Stats({ data }) {
 
 // Main component
 export default function WorldAnalytics() {
+  const [isClient, setIsClient] = useState(false);
   const clientData = useClientData();
   
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const handleCountryClick = (country) => {
     console.log('Country clicked:', country);
   };
+
+  // Don't render on server
+  if (!isClient) {
+    return (
+      <div className="w-full h-full min-h-[300px] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-accent border-t-transparent rounded-full animate-spin mb-4" />
+          <p className="text-muted">Loading visualization...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full h-full min-h-[300px]">

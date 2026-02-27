@@ -147,8 +147,8 @@ const TestimonialSlider = () => {
                           {review.country_code}
                         </span>
                       )}
-                      <span className="text-accent" aria-hidden>•</span>
-                      <span>{formatDate(review.time)}</span>
+                      {/* <span className="text-accent" aria-hidden>•</span>
+                      <span>{formatDate(review.time)}</span> */}
                     </div>
                   </div>
                 </div>
