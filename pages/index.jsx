@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt, 
   HiOutlineClock, HiOutlineChartBar, HiOutlineBriefcase } from 'react-icons/hi';
-import ParticlesContainer from "../components/ParticlesContainer";
 import ThreeScene from "../components/ThreeScene";
 import { fadeIn } from "../variants";
 import statsData from '../data/stats.json';
