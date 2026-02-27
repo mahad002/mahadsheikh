@@ -34,12 +34,10 @@ export function ThemeProvider({
     }
   }, [theme, storageKey, mounted]);
 
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  // Always provide context so useTheme() in Header/Nav etc. never throws before mount
+  const value = mounted ? { theme, setTheme } : { theme: defaultTheme, setTheme: () => {} };
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );
