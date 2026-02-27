@@ -1,9 +1,15 @@
 "use client";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt, 
   HiOutlineClock, HiOutlineChartBar, HiOutlineBriefcase } from 'react-icons/hi';
-import ThreeScene from "../components/ThreeScene";
 import { fadeIn } from "../variants";
+
+// Three.js/WebGL must not run on server (no document/window on Vercel SSR) — load only on client
+const ThreeScene = dynamic(() => import("../components/ThreeScene"), {
+  ssr: false,
+  loading: () => <div className="w-full h-full min-h-screen bg-gradient-to-b from-background/80 to-background" />,
+});
 import statsData from '../data/stats.json';
 import servicesData from '../data/services.json';
 

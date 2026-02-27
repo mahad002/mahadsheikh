@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 import { useTheme } from './ThemeProvider';
 
 // icons
@@ -32,7 +32,8 @@ export const navData = [
 ];
 
 const Nav = () => {
-  const pathname = usePathname();
+  const router = useRouter();
+  const pathname = router.pathname;
   const { theme } = useTheme();
 
   return (
