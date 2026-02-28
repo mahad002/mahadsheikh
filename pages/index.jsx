@@ -1,4 +1,5 @@
 "use client";
+import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt, 
@@ -12,6 +13,7 @@ const ThreeScene = dynamic(() => import("../components/ThreeScene"), {
 });
 import statsData from '../data/stats.json';
 import servicesData from '../data/services.json';
+import timelineData from '../data/timeline.json';
 
 // Calculate dynamic years of experience (starting from 2022)
 const calculateExperience = () => {
@@ -21,6 +23,9 @@ const calculateExperience = () => {
 };
 
 const Home = () => {
+  const statsRef = useRef(null);
+  const servicesRef = useRef(null);
+
   return (
     <div className="relative">
       {/* Hero Section */}
