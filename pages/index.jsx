@@ -278,12 +278,8 @@ const Home = () => {
 
             {/* Timeline Items */}
             {timelineData.timeline.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.1 * index)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
                 className={`relative flex md:justify-between items-start mb-12 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
                   }`}
               >
@@ -308,7 +304,7 @@ const Home = () => {
                 <div className="absolute left-12 md:left-1/2 transform md:translate-x-8 bg-accent/10 px-4 py-1 rounded-full text-sm font-medium text-accent">
                   {item.year}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
