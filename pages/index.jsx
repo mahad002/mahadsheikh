@@ -2,8 +2,10 @@
 import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt, 
-  HiOutlineClock, HiOutlineChartBar, HiOutlineBriefcase } from 'react-icons/hi';
+import {
+  HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt,
+  HiOutlineClock, HiOutlineChartBar, HiOutlineBriefcase
+} from 'react-icons/hi';
 import { fadeIn } from "../variants";
 
 // Three.js/WebGL must not run on server (no document/window on Vercel SSR) — load only on client
@@ -43,9 +45,10 @@ const Home = () => {
           <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen pt-20 lg:pt-0 gap-12">
             {/* Text Content */}
             <motion.div
-              variants={fadeIn("right", 0.2)}
+              variants={fadeIn("right", 0.1)}
               initial="hidden"
-              animate="show"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
               className="flex-1 text-center lg:text-left max-w-2xl lg:max-w-none"
             >
               <motion.div
@@ -77,7 +80,7 @@ const Home = () => {
                 transition={{ delay: 0.4 }}
                 className="text-muted text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8"
               >
-                Passionate about creating innovative solutions and delivering exceptional 
+                Passionate about creating innovative solutions and delivering exceptional
                 digital experiences. Let's turn your vision into reality.
               </motion.p>
 
@@ -87,14 +90,14 @@ const Home = () => {
                 transition={{ delay: 0.5 }}
                 className="flex flex-wrap gap-4 justify-center lg:justify-start"
               >
-                <a 
+                <a
                   href="/contact"
                   className="btn btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full flex items-center gap-2 group"
                 >
                   <span>Start a Project</span>
                   <HiArrowDown className="w-5 h-5 group-hover:animate-bounce" />
                 </a>
-                <a 
+                <a
                   href="/work"
                   className="btn glass px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-accent/20"
                 >
@@ -105,16 +108,17 @@ const Home = () => {
 
             {/* Visual Content - Hidden on small screens */}
             <motion.div
-              variants={fadeIn("left", 0.2)}
+              variants={fadeIn("left", 0.1)}
               initial="hidden"
-              animate="show"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
               className="flex-1 relative hidden md:block"
             >
               <div className="relative w-full max-w-[500px] aspect-square mx-auto">
                 {/* Decorative Elements */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-full animate-pulse" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent rounded-full animate-pulse delay-75" />
-                
+
                 {/* Floating Icons */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -180,21 +184,23 @@ const Home = () => {
             {statsData.stats.map((stat, index) => {
               // Use dynamic experience calculation for the first stat
               const displayValue = index === 0 ? calculateExperience() : stat.value;
-              
+
               return (
-              <motion.div
-                key={index}
-                variants={fadeIn("up", 0.2 * index)}
-                initial="hidden"
-                animate="show"
-                className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
-              >
-                <div className="text-4xl font-bold text-accent mb-2">
-                  {displayValue}{stat.suffix}
-                </div>
-                <div className="text-muted">{stat.label}</div>
-              </motion.div>
-            )})}
+                <motion.div
+                  key={index}
+                  variants={fadeIn("up", 0.1 * index)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
+                >
+                  <div className="text-4xl font-bold text-accent mb-2">
+                    {displayValue}{stat.suffix}
+                  </div>
+                  <div className="text-muted">{stat.label}</div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -203,9 +209,10 @@ const Home = () => {
       <section ref={servicesRef} className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <motion.h2
-            variants={fadeIn("up", 0.2)}
+            variants={fadeIn("up", 0.1)}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
             Featured <span className="text-accent">Services</span>
@@ -215,9 +222,10 @@ const Home = () => {
             {servicesData.services.slice(0, 3).map((service, index) => (
               <motion.div
                 key={index}
-                variants={fadeIn("up", 0.2 * index)}
+                variants={fadeIn("up", 0.1 * index)}
                 initial="hidden"
-                animate="show"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
                 className="group bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
                 <div className="mb-6 w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
@@ -234,12 +242,13 @@ const Home = () => {
           </div>
 
           <motion.div
-            variants={fadeIn("up", 0.6)}
+            variants={fadeIn("up", 0.3)}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true }}
             className="text-center mt-12"
           >
-            <a 
+            <a
               href="/services"
               className="btn glass px-8 py-4 rounded-full hover:bg-accent/20 inline-flex items-center gap-2"
             >
@@ -254,9 +263,10 @@ const Home = () => {
       <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <motion.h2
-            variants={fadeIn("up", 0.2)}
+            variants={fadeIn("up", 0.1)}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
             Professional <span className="text-accent">Journey</span>
@@ -270,12 +280,12 @@ const Home = () => {
             {timelineData.timeline.map((item, index) => (
               <motion.div
                 key={index}
-                variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.2 * index)}
+                variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.1 * index)}
                 initial="hidden"
-                animate="show"
-                className={`relative flex md:justify-between items-start mb-12 ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className={`relative flex md:justify-between items-start mb-12 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
               >
                 {/* Content */}
                 <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
