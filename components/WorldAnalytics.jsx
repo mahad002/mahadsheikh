@@ -225,7 +225,11 @@ export default function WorldAnalytics() {
       <Canvas
         camera={{ position: [0, 0, 2.5], fov: 60 }}
         style={{ width: '100%', height: '100%' }}
-        dpr={[1, 2]}
+        dpr={1}
+        gl={{
+          antialias: false,
+          powerPreference: "high-performance"
+        }}
       >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} intensity={1} />

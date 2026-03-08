@@ -1,6 +1,7 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import dynamic from 'next/dynamic';
 import Bulb from '../../components/Bulb';
 import WorkSlider from '../../components/WorkSlider';
@@ -18,6 +19,17 @@ const WorldAnalytics = dynamic(() => import('../../components/WorldAnalytics'), 
 
 const Work = () => {
   const [showAnalytics, setShowAnalytics] = useState(false);
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      setShowAnalytics(true);
+    }
+  }, [inView]);
+
   return (
     <div className='min-h-screen bg-primary/30 py-24 sm:py-32 overflow-hidden'>
       <div className='container mx-auto px-4'>
@@ -48,23 +60,18 @@ const Work = () => {
 
         {/* Analytics: load only when user opts in (saves ~3D bundle on initial /work load) */}
         <motion.div
+          ref={ref}
           variants={fadeIn('up', 0.6)}
           initial='hidden'
           animate='show'
-          className='bg-card rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm border border-border'
+          className='bg-card rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm border border-border min-h-[400px]'
         >
           <h2 className='text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12'>
             Global <span className='text-accent'>Impact</span>
           </h2>
           {!showAnalytics ? (
             <div className='w-full aspect-video sm:h-[400px] flex items-center justify-center'>
-              <button
-                type='button'
-                onClick={() => setShowAnalytics(true)}
-                className='btn btn-primary px-8 py-4 rounded-full'
-              >
-                Load global impact visualization
-              </button>
+              <div className="w-10 h-10 border-2 border-accent border-t-transparent rounded-full animate-spin" />
             </div>
           ) : (
             <div className='w-full aspect-[16/9] sm:aspect-[2/1] md:aspect-auto md:h-[600px] lg:h-[800px]'>

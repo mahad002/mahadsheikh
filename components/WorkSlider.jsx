@@ -153,14 +153,16 @@ const WorkSlider = () => {
                 </p>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-4">
-                  {Object.entries(project.metrics).map(([key, value], index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-lg font-bold text-accent">{value}</div>
-                      <div className="text-xs text-muted capitalize">{key.replace('_', ' ')}</div>
-                    </div>
-                  ))}
-                </div>
+                {project.metrics && Object.keys(project.metrics).length > 0 && (
+                  <div className="grid grid-cols-3 gap-4">
+                    {Object.entries(project.metrics).map(([key, value], index) => (
+                      <div key={index} className="text-center">
+                        <div className="text-lg font-bold text-accent">{value}</div>
+                        <div className="text-xs text-muted capitalize">{key.replace('_', ' ')}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 {/* View Project Link */}
                 <a

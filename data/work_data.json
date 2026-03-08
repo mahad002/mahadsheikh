@@ -7,11 +7,7 @@
       "image": "https://emoti-verse.vercel.app/logo.png",
       "link": "https://emoti-verse.vercel.app/",
       "category": "AI & ML",
-      "metrics": {
-        "interactions": "5K+",
-        "uptime": "99.9%",
-        "rating": "4.8/5"
-      }
+      "metrics": {}
     },
     {
       "title": "GWM Pakistan",
@@ -21,9 +17,9 @@
       "link": "https://www.gwm-pakistan.com/",
       "category": "Enterprise Solutions",
       "metrics": {
-        "visitors": "50K+",
-        "leads": "2K+",
-        "models": "10+"
+        "avg_views": "250K+",
+        "business_growth": "20-25%",
+        "est_leads": "20%+"
       },
       "needsDarkBg": true
     },
@@ -35,9 +31,9 @@
       "link": "https://guruisonline.com/",
       "category": "EdTech",
       "metrics": {
-        "students": "1K+",
-        "courses": "50+",
-        "satisfaction": "98%"
+        "active_students": "2K+",
+        "data_transfer": "50GB+",
+        "business_gain": "25%"
       }
     },
     {
@@ -48,9 +44,8 @@
       "link": "https://execchauffeurgroup.co.uk/",
       "category": "Web Development",
       "metrics": {
-        "bookings": "5K+",
-        "fleet": "100+",
-        "growth": "150%"
+        "lead_increase": "50%",
+        "monthly_visitors": "3-6K"
       },
       "needsDarkBg": true
     },
@@ -61,11 +56,7 @@
       "image": "/projects/housing-disrepair-logo.png",
       "link": "https://www.housingdisrepaircompensations.co.uk/",
       "category": "Legal Services",
-      "metrics": {
-        "claims": "500+",
-        "payouts": "£1M+",
-        "trust": "99%"
-      }
+      "metrics": {}
     },
     {
       "title": "KR Haulier",
@@ -74,11 +65,7 @@
       "image": "/projects/KR-final-dark.png",
       "link": "https://kr-haulier.vercel.app/",
       "category": "Enterprise Solutions",
-      "metrics": {
-        "reliability": "100%",
-        "coverage": "Global",
-        "efficiency": "High"
-      }
+      "metrics": {}
     },
     {
       "title": "Paralegal",
@@ -87,11 +74,7 @@
       "image": "/projects/paralegal.jpg",
       "link": "#",
       "category": "AI & ML",
-      "metrics": {
-        "cases": "1K+",
-        "accuracy": "95%",
-        "reduction": "60%"
-      }
+      "metrics": {}
     },
     {
       "title": "Unisys Task Matrix",
@@ -100,11 +83,7 @@
       "image": "/projects/unisys.jpg",
       "link": "#",
       "category": "Enterprise Solutions",
-      "metrics": {
-        "tasks": "10K+",
-        "users": "500+",
-        "efficiency": "40%"
-      }
+      "metrics": {}
     }
   ],
   "categories": [
