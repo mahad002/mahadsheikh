@@ -11,7 +11,6 @@ import { fadeIn } from "../variants";
 // Three.js/WebGL must not run on server (no document/window on Vercel SSR) — load only on client
 const ThreeScene = dynamic(() => import("../components/ThreeScene"), {
   ssr: false,
-  loading: () => <div className="w-full h-full min-h-screen bg-gradient-to-b from-background/80 to-background" />,
 });
 import statsData from '../data/stats.json';
 import servicesData from '../data/services.json';
@@ -45,16 +44,9 @@ const Home = () => {
           <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen pt-20 lg:pt-0 gap-12">
             {/* Text Content */}
             <motion.div
-              variants={fadeIn("right", 0.1)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
               className="flex-1 text-center lg:text-left max-w-2xl lg:max-w-none"
             >
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
                 className="mb-6"
               >
                 <span className="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium inline-block">
@@ -63,9 +55,6 @@ const Home = () => {
               </motion.div>
 
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
                 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight"
               >
                 Building Digital
@@ -75,9 +64,6 @@ const Home = () => {
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
                 className="text-muted text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8"
               >
                 Passionate about creating innovative solutions and delivering exceptional
@@ -85,9 +71,6 @@ const Home = () => {
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
                 className="flex flex-wrap gap-4 justify-center lg:justify-start"
               >
                 <a
@@ -108,10 +91,6 @@ const Home = () => {
 
             {/* Visual Content - Hidden on small screens */}
             <motion.div
-              variants={fadeIn("left", 0.1)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
               className="flex-1 relative hidden md:block"
             >
               <div className="relative w-full max-w-[500px] aspect-square mx-auto">
@@ -121,27 +100,18 @@ const Home = () => {
 
                 {/* Floating Icons */}
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6 }}
                   className="absolute -left-4 top-1/4 glass p-4 rounded-2xl"
                 >
                   <HiCode className="text-3xl text-accent" />
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7 }}
                   className="absolute -right-4 top-1/2 glass p-4 rounded-2xl"
                 >
                   <HiOutlineGlobeAlt className="text-3xl text-accent" />
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 }}
                   className="absolute bottom-4 left-1/2 -translate-x-1/2 glass p-4 rounded-2xl"
                 >
                   <HiOutlineLightningBolt className="text-3xl text-accent" />
@@ -152,9 +122,6 @@ const Home = () => {
 
           {/* Scroll Indicator - Hidden on small screens */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 1 }}
             className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
           >
             <div className="flex flex-col items-center gap-2">
@@ -188,10 +155,6 @@ const Home = () => {
               return (
                 <motion.div
                   key={index}
-                  variants={fadeIn("up", 0.1 * index)}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
                   className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
                 >
                   <div className="text-4xl font-bold text-accent mb-2">
@@ -209,10 +172,6 @@ const Home = () => {
       <section ref={servicesRef} className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <motion.h2
-            variants={fadeIn("up", 0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
             Featured <span className="text-accent">Services</span>
@@ -222,10 +181,6 @@ const Home = () => {
             {servicesData.services.slice(0, 3).map((service, index) => (
               <motion.div
                 key={index}
-                variants={fadeIn("up", 0.1 * index)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
                 className="group bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
               >
                 <div className="mb-6 w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
@@ -242,10 +197,6 @@ const Home = () => {
           </div>
 
           <motion.div
-            variants={fadeIn("up", 0.3)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
             className="text-center mt-12"
           >
             <a
@@ -263,10 +214,6 @@ const Home = () => {
       <section className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <motion.h2
-            variants={fadeIn("up", 0.1)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
             className="text-3xl md:text-4xl font-bold text-center mb-12"
           >
             Professional <span className="text-accent">Journey</span>
