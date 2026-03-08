@@ -14,6 +14,71 @@
       }
     },
     {
+      "title": "GWM Pakistan",
+      "description": "Full-stack web platform integrating backend APIs, cloud hosting, and marketing automation workflows for the automotive industry.",
+      "tech": ["Next.js", "Node.js", "AWS", "Automation"],
+      "image": "https://djphncgl0uau7.cloudfront.net/images/homepage_globalsettings_navbarlogo_1770037965346.webp",
+      "link": "https://www.gwm-pakistan.com/",
+      "category": "Enterprise Solutions",
+      "metrics": {
+        "visitors": "50K+",
+        "leads": "2K+",
+        "models": "10+"
+      }
+    },
+    {
+      "title": "GuruIsOnline",
+      "description": "Developed a scalable React and Node.js platform with authentication, email services, and cloud deployment for educational services.",
+      "tech": ["React", "Node.js", "Supabase", "Cloud"],
+      "image": "/projects/guruisonline-logo.webp",
+      "link": "https://guruisonline.com/",
+      "category": "EdTech",
+      "metrics": {
+        "students": "1K+",
+        "courses": "50+",
+        "satisfaction": "98%"
+      }
+    },
+    {
+      "title": "Exec Chauffeur Group",
+      "description": "Production-ready client-facing platform with booking workflows and CMS integration for premium chauffeur services.",
+      "tech": ["Next.js", "TypeScript", "CMS", "Booking Engines"],
+      "image": "https://i0.wp.com/execchauffeurgroup.co.uk/wp-content/uploads/2025/05/Exec-Chauffeur.png?fit=243%2C46&ssl=1",
+      "link": "https://execchauffeurgroup.co.uk/",
+      "category": "Web Development",
+      "metrics": {
+        "bookings": "5K+",
+        "fleet": "100+",
+        "growth": "150%"
+      }
+    },
+    {
+      "title": "Housing Disrepair",
+      "description": "Implemented a Next.js platform with Firebase backend and AWS cloud storage for legal compensation claims.",
+      "tech": ["Next.js", "Firebase", "AWS", "LegalTech"],
+      "image": "/projects/housing-disrepair-logo.png",
+      "link": "https://www.housingdisrepaircompensations.co.uk/",
+      "category": "Legal Services",
+      "metrics": {
+        "claims": "500+",
+        "payouts": "£1M+",
+        "trust": "99%"
+      }
+    },
+    {
+      "title": "KR Haulier",
+      "description": "Precision Logistics. Global Standards. Your strategic partner for end-to-end haulage. We combine traditional reliability with modern technology to move what matters most.",
+      "tech": ["Next.js", "React", "Cloudfront", "Vercel"],
+      "image": "/projects/KR-final-dark.png",
+      "link": "https://kr-haulier.vercel.app/",
+      "category": "Enterprise Solutions",
+      "metrics": {
+        "reliability": "100%",
+        "coverage": "Global",
+        "efficiency": "High"
+      }
+    },
+    {
       "title": "Paralegal",
       "description": "RAG-based legal assistant with document ingestion and conversational querying. Designed compliance automation workflows and backend services.",
       "tech": ["Node.js", "Firebase", "RAG", "LLMs", "Vector DB"],
@@ -37,58 +102,6 @@
         "tasks": "10K+",
         "users": "500+",
         "efficiency": "40%"
-      }
-    },
-    {
-      "title": "GWM Pakistan",
-      "description": "Full-stack web platform integrating backend APIs, cloud hosting, and marketing automation workflows for the automotive industry.",
-      "tech": ["Next.js", "Node.js", "AWS", "Automation"],
-      "image": "https://www.gwm-pakistan.com/logo.png",
-      "link": "https://www.gwm-pakistan.com/",
-      "category": "Enterprise Solutions",
-      "metrics": {
-        "visitors": "50K+",
-        "leads": "2K+",
-        "models": "10+"
-      }
-    },
-    {
-      "title": "GuruIsOnline",
-      "description": "Developed a scalable React and Node.js platform with authentication, email services, and cloud deployment for educational services.",
-      "tech": ["React", "Node.js", "Supabase", "Cloud"],
-      "image": "https://guruisonline.com/logo.png",
-      "link": "https://guruisonline.com/",
-      "category": "EdTech",
-      "metrics": {
-        "students": "1K+",
-        "courses": "50+",
-        "satisfaction": "98%"
-      }
-    },
-    {
-      "title": "Exec Chauffeur Group",
-      "description": "Production-ready client-facing platform with booking workflows and CMS integration for premium chauffeur services.",
-      "tech": ["Next.js", "TypeScript", "CMS", "Booking Engines"],
-      "image": "https://execchauffeurgroup.co.uk/logo.png",
-      "link": "https://execchauffeurgroup.co.uk/",
-      "category": "Web Development",
-      "metrics": {
-        "bookings": "5K+",
-        "fleet": "100+",
-        "growth": "150%"
-      }
-    },
-    {
-      "title": "Housing Disrepair",
-      "description": "Implemented a Next.js platform with Firebase backend and AWS cloud storage for legal compensation claims.",
-      "tech": ["Next.js", "Firebase", "AWS", "LegalTech"],
-      "image": "https://www.housingdisrepaircompensations.co.uk/logo.png",
-      "link": "https://www.housingdisrepaircompensations.co.uk/",
-      "category": "Legal Services",
-      "metrics": {
-        "claims": "500+",
-        "payouts": "£1M+",
-        "trust": "99%"
       }
     }
   ],

@@ -132,7 +132,7 @@ function InteractiveGlobe({ clientData, onCountryClick }) {
           1.1
         );
 
-        const markerSize = 0.02 + (country.count / maxOrders) * 0.06;
+        const markerSize = 0.012 + (country.count / maxOrders) * 0.03;
 
         return (
           <group key={index} position={position}>

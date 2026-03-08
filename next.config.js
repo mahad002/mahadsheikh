@@ -20,6 +20,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'guruisonline.com', pathname: '/**' },
       { protocol: 'https', hostname: 'execchauffeurgroup.co.uk', pathname: '/**' },
       { protocol: 'https', hostname: 'www.housingdisrepaircompensations.co.uk', pathname: '/**' },
+      { protocol: 'https', hostname: 'djphncgl0uau7.cloudfront.net', pathname: '/**' },
     ],
   },
 };

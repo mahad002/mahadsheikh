@@ -40,6 +40,25 @@ const WorkSlider = () => {
       variants={container}
       className="space-y-12"
     >
+      {/* Technology Stack / Expertise */}
+      <motion.div variants={item} className="bg-card rounded-2xl p-8 border border-border">
+        <h3 className="text-xl font-bold mb-6">Technology Expertise</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {Object.entries(workData.technologies).map(([category, techs], index) => (
+            <div key={index}>
+              <h4 className="text-accent mb-3 capitalize">{category}</h4>
+              <ul className="space-y-2">
+                {techs.map((tech, techIndex) => (
+                  <li key={techIndex} className="text-muted text-sm">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
       {/* Achievement Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <motion.div
@@ -112,28 +131,21 @@ const WorkSlider = () => {
             }}
           >
             {/* Project Image - next/image for optimization + lazy load */}
-            <div className="aspect-video relative overflow-hidden">
+            <div className="aspect-video relative overflow-hidden bg-white/5 flex items-center justify-center p-4">
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-contain transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
             {/* Content */}
             <div className="p-6 relative z-10">
               <div className="space-y-4">
-                <h3 className="text-xl font-bold group-hover:text-accent transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-muted line-clamp-2">
-                  {project.description}
-                </p>
-
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, techIndex) => (
@@ -145,6 +157,13 @@ const WorkSlider = () => {
                     </span>
                   ))}
                 </div>
+
+                <h3 className="text-xl font-bold group-hover:text-accent transition-colors duration-300">
+                  {project.title}
+                </h3>
+                <p className="text-muted line-clamp-2">
+                  {project.description}
+                </p>
 
                 {/* Metrics */}
                 <div className="grid grid-cols-3 gap-4">
@@ -180,24 +199,6 @@ const WorkSlider = () => {
         ))}
       </motion.div>
 
-      {/* Technology Stack */}
-      <motion.div variants={item} className="bg-card rounded-2xl p-8 border border-border">
-        <h3 className="text-xl font-bold mb-6">Technology Expertise</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {Object.entries(workData.technologies).map(([category, techs], index) => (
-            <div key={index}>
-              <h4 className="text-accent mb-3 capitalize">{category}</h4>
-              <ul className="space-y-2">
-                {techs.map((tech, techIndex) => (
-                  <li key={techIndex} className="text-muted text-sm">
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </motion.div>
     </motion.div>
   );
 };
