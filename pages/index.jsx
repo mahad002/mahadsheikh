@@ -24,235 +24,61 @@ const calculateExperience = () => {
 };
 
 const Home = () => {
-  const statsRef = useRef(null);
-  const servicesRef = useRef(null);
-
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative min-h-screen">
+      <section className="relative min-h-screen flex items-center">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="h-full md:h-screen">
             <ThreeScene />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background to-background" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-4 min-h-screen">
-          <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen pt-20 lg:pt-0 gap-12">
-            {/* Text Content */}
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto pt-20">
             <motion.div
-              className="flex-1 text-center lg:text-left max-w-2xl lg:max-w-none"
+              className="mb-8"
             >
-              <motion.div
-                className="mb-6"
-              >
-                <span className="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium inline-block">
-                  Full Stack Developer
-                </span>
-              </motion.div>
-
-              <motion.h1
-                className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight"
-              >
-                Building Digital
-                <span className="text-accent block mt-2">
-                  Experiences
-                </span>
-              </motion.h1>
-
-              <motion.p
-                className="text-muted text-base sm:text-lg max-w-xl mx-auto lg:mx-0 mb-8"
-              >
-                Passionate about creating innovative solutions and delivering exceptional
-                digital experiences. Let's turn your vision into reality.
-              </motion.p>
-
-              <motion.div
-                className="flex flex-wrap gap-4 justify-center lg:justify-start"
-              >
-                <a
-                  href="/contact"
-                  className="btn btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full flex items-center gap-2 group"
-                >
-                  <span>Start a Project</span>
-                  <HiArrowDown className="w-5 h-5 group-hover:animate-bounce" />
-                </a>
-                <a
-                  href="/work"
-                  className="btn glass px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-accent/20"
-                >
-                  View Portfolio
-                </a>
-              </motion.div>
+              <span className="px-6 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium border border-accent/20">
+                Software & AI Engineer
+              </span>
             </motion.div>
 
-            {/* Visual Content - Hidden on small screens */}
+            <motion.h1
+              className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-8 leading-tight tracking-tight"
+            >
+              I am
+              <span className="text-accent block mt-2">
+                Muhammad Mahad Sheikh
+              </span>
+            </motion.h1>
+
+            <motion.p
+              className="text-muted text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+            >
+              Who am I? A resilient, determined, and visionary developer bridging the gap between technology and meaningful impact.
+            </motion.p>
+
             <motion.div
-              className="flex-1 relative hidden md:block"
+              className="flex flex-wrap gap-6 justify-center"
             >
-              <div className="relative w-full max-w-[500px] aspect-square mx-auto">
-                {/* Decorative Elements */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-full animate-pulse" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent rounded-full animate-pulse delay-75" />
-
-                {/* Floating Icons */}
-                <motion.div
-                  className="absolute -left-4 top-1/4 glass p-4 rounded-2xl"
-                >
-                  <HiCode className="text-3xl text-accent" />
-                </motion.div>
-
-                <motion.div
-                  className="absolute -right-4 top-1/2 glass p-4 rounded-2xl"
-                >
-                  <HiOutlineGlobeAlt className="text-3xl text-accent" />
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-4 left-1/2 -translate-x-1/2 glass p-4 rounded-2xl"
-                >
-                  <HiOutlineLightningBolt className="text-3xl text-accent" />
-                </motion.div>
-              </div>
+              <a
+                href="/about"
+                className="btn btn-primary px-10 py-4 rounded-full flex items-center gap-3 group"
+              >
+                <span>Discover My Story</span>
+                <HiArrowDown className="w-5 h-5 -rotate-90 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="/work"
+                className="btn glass px-10 py-4 rounded-full hover:bg-accent/20"
+              >
+                Explore Projects
+              </a>
             </motion.div>
-          </div>
-
-          {/* Scroll Indicator - Hidden on small screens */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
-          >
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-sm text-muted">Scroll to explore</span>
-              <div className="w-6 h-10 border-2 border-muted rounded-full flex items-center justify-center">
-                <motion.div
-                  animate={{
-                    y: [0, 8, 0],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                  }}
-                  className="w-2 h-2 bg-accent rounded-full"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section ref={statsRef} className="py-20 bg-gradient-to-b from-background via-background/50 to-background relative z-10">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {statsData.stats.map((stat, index) => {
-              // Use dynamic experience calculation for the first stat
-              const displayValue = index === 0 ? calculateExperience() : stat.value;
-
-              return (
-                <motion.div
-                  key={index}
-                  className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
-                >
-                  <div className="text-4xl font-bold text-accent mb-2">
-                    {displayValue}{stat.suffix}
-                  </div>
-                  <div className="text-muted">{stat.label}</div>
-                </motion.div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Services */}
-      <section ref={servicesRef} className="py-20 relative z-10">
-        <div className="container mx-auto px-4">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
-          >
-            Featured <span className="text-accent">Services</span>
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesData.services.slice(0, 3).map((service, index) => (
-              <motion.div
-                key={index}
-                className="group bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
-              >
-                <div className="mb-6 w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
-                  <HiCode className="text-2xl text-accent" />
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-accent transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-muted">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            className="text-center mt-12"
-          >
-            <a
-              href="/services"
-              className="btn glass px-8 py-4 rounded-full hover:bg-accent/20 inline-flex items-center gap-2"
-            >
-              View All Services
-              <HiArrowDown className="w-5 h-5 rotate-[-90deg]" />
-            </a>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-20 relative z-10">
-        <div className="container mx-auto px-4">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
-          >
-            Professional <span className="text-accent">Journey</span>
-          </motion.h2>
-
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-border" />
-
-            {/* Timeline Items */}
-            {timelineData.timeline.map((item, index) => (
-              <div
-                key={index}
-                className={`relative flex md:justify-between items-start mb-12 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                  }`}
-              >
-                {/* Content */}
-                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                  <div className="bg-card/50 backdrop-blur-sm p-6 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300">
-                    <div className="flex items-center gap-2 mb-2">
-                      <HiOutlineBriefcase className="text-accent text-xl" />
-                      <h3 className="text-lg font-bold">{item.title}</h3>
-                    </div>
-                    <p className="text-accent mb-2">{item.company}</p>
-                    <p className="text-muted">{item.description}</p>
-                  </div>
-                </div>
-
-                {/* Year Marker */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-accent/20 border-4 border-accent flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-accent" />
-                </div>
-
-                {/* Year */}
-                <div className="absolute left-12 md:left-1/2 transform md:translate-x-8 bg-accent/10 px-4 py-1 rounded-full text-sm font-medium text-accent">
-                  {item.year}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
