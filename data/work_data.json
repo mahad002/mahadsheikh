@@ -72,6 +72,15 @@
       "metrics": {}
     },
     {
+      "title": "Inspirovix",
+      "description": "Revolutionizing Business Operations with Inspirovix. Where AI Meets Excellence. Streamline your business workflows and enhance customer experience through AI-powered automation.",
+      "tech": ["Next.js", "AI Automation", "Node.js", "Cloud"],
+      "image": "https://inspirovix.s3.us-east-2.amazonaws.com/Inspirovix+-+11.png",
+      "link": "https://www.inspirovix.com/",
+      "category": "Enterprise Solutions",
+      "metrics": {}
+    },
+    {
       "title": "Paralegal",
       "description": "RAG-based legal assistant with document ingestion and conversational querying. Designed compliance automation workflows and backend services.",
       "tech": ["Node.js", "Firebase", "RAG", "LLMs", "Vector DB"],

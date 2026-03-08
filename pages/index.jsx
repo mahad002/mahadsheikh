@@ -56,7 +56,7 @@ const Home = () => {
             >
               <a
                 href="/about"
-                className="btn btn-primary px-10 py-4 rounded-full flex items-center gap-3 group"
+                className="btn btn-primary px-10 py-4 rounded-full flex items-center gap-3 group border border-white/20 shadow-lg shadow-accent/20"
               >
                 <span>Discover My Story</span>
                 <HiArrowDown className="w-5 h-5 -rotate-90 group-hover:translate-x-1 transition-transform" />
@@ -64,13 +64,13 @@ const Home = () => {
               <a
                 href="/Muhammad Mahad Sheikh - CV.pdf"
                 download
-                className="btn glass px-10 py-4 rounded-full hover:bg-accent/20 flex items-center gap-2"
+                className="btn glass px-10 py-4 rounded-full hover:bg-accent/20 flex items-center gap-2 border-accent/30"
               >
                 <span>Download Resume</span>
               </a>
               <a
                 href="/work"
-                className="btn glass px-10 py-4 rounded-full hover:bg-accent/20"
+                className="btn glass px-10 py-4 rounded-full hover:bg-accent/20 border-accent/30"
               >
                 Explore Projects
               </a>
