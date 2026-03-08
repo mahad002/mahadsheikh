@@ -73,6 +73,13 @@ const Home = () => {
                 <HiArrowDown className="w-5 h-5 -rotate-90 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
+                href="/Muhammad Mahad Sheikh - CV.pdf"
+                download
+                className="btn glass px-10 py-4 rounded-full hover:bg-accent/20 flex items-center gap-2"
+              >
+                <span>Download Resume</span>
+              </a>
+              <a
                 href="/work"
                 className="btn glass px-10 py-4 rounded-full hover:bg-accent/20"
               >

@@ -103,14 +103,26 @@ const About = () => {
         <div className="flex flex-col xl:flex-row gap-x-12 items-start justify-between w-full">
           {/* Narrative Content */}
           <div className="flex-1 flex flex-col justify-start">
-            <motion.h2
-              variants={fadeIn("right", 0.2)}
-              initial="hidden"
-              animate="show"
-              className="h2 mb-8"
-            >
-              Who <span className="text-accent">am I</span>?
-            </motion.h2>
+            <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8">
+              <motion.h2
+                variants={fadeIn("right", 0.2)}
+                initial="hidden"
+                animate="show"
+                className="h2 mb-0"
+              >
+                Who <span className="text-accent">am I</span>?
+              </motion.h2>
+              <motion.a
+                variants={fadeIn("right", 0.3)}
+                initial="hidden"
+                animate="show"
+                href="/Muhammad Mahad Sheikh - CV.pdf"
+                download
+                className="btn btn-primary px-8 py-3 rounded-full flex items-center gap-2 max-w-max"
+              >
+                <span>Download Resume</span>
+              </motion.a>
+            </div>
             
             <motion.div
               variants={fadeIn("right", 0.4)}
@@ -135,7 +147,7 @@ const About = () => {
               </p>
 
               <p>
-                Looking ahead, my vision is to become a <strong>technology leader and entrepreneur</strong>—building innovative businesses and bridging the gap between technology and meaningful impact. I want to inspire young people to think boldly, embrace creativity, and create opportunities that uplift their communities.
+                Looking ahead, my vision is to become a <strong>technology leader and entrepreneur</strong> building innovative businesses and bridging the gap between technology and meaningful impact. I want to inspire young people to think boldly, embrace creativity, and create opportunities that uplift their communities.
               </p>
             </motion.div>
           </div>
@@ -154,7 +166,7 @@ const About = () => {
                   className={`${
                     index === itemI
                       ? "text-accent border-b-2 border-accent"
-                      : "text-muted hover:text-white"
+                      : "text-muted hover:text-text"
                   } cursor-pointer capitalize xl:text-lg transition-all duration-300 pb-2`}
                   onClick={() => setIndex(itemI)}
                 >
@@ -169,7 +181,7 @@ const About = () => {
                   key={itemI}
                   className="flex flex-col md:flex-row gap-x-4 items-center xl:items-start text-center xl:text-left text-muted"
                 >
-                  <div className="font-semibold text-white">{item.title}</div>
+                  <div className="font-semibold text-text">{item.title}</div>
                   <div className="hidden md:flex opacity-30">|</div>
                   <div className="text-accent">{item.stage}</div>
                   
@@ -236,19 +248,18 @@ const About = () => {
               <motion.div
                 key={index}
                 variants={fadeIn(index % 2 === 0 ? "left" : "right", 0.3)}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
+                initial="show"
+                animate="show"
                 className={`relative flex md:justify-between items-center mb-16 w-full ${
                   index % 2 === 0 ? 'md:flex-row-reverse' : ''
                 }`}
               >
                 {/* Content */}
                 <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${index % 2 === 0 ? 'md:text-right' : ''}`}>
-                  <div className="bg-card/30 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-accent/50 transition-all duration-300">
+                  <div className="bg-card/30 backdrop-blur-md p-8 rounded-2xl border border-border hover:border-accent/50 transition-all duration-300">
                     <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
                       <HiOutlineBriefcase className="text-accent text-2xl" />
-                      <h3 className="text-xl font-bold text-white tracking-wide">{item.title}</h3>
+                      <h3 className="text-xl font-bold text-text tracking-wide">{item.title}</h3>
                     </div>
                     <p className="text-accent font-medium mb-3">{item.company}</p>
                     <p className="text-muted leading-relaxed">{item.description}</p>
@@ -258,8 +269,10 @@ const About = () => {
                 {/* Dot Marker */}
                 <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent ring-8 ring-accent/10 z-10" />
 
-                {/* Year */}
-                <div className={`absolute left-10 md:left-auto md:w-[45%] flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                {/* Year Container - Sits on the other side of the flex row */}
+                <div className={`absolute left-12 top-0 md:static md:w-[45%] flex items-center ${
+                  index % 2 === 0 ? 'md:justify-end pr-8' : 'md:justify-start pl-8'
+                }`}>
                    <span className="bg-accent/10 px-6 py-2 rounded-full text-sm font-bold text-accent border border-accent/20">
                     {item.year}
                   </span>
