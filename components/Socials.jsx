@@ -26,11 +26,11 @@ export const socialData = [
     link: "https://instagram.com/mahad.08",
     Icon: RiInstagramLine,
   },
-  {
-    name: "Fiverr",
-    link: "https://www.fiverr.com/mahadsheikh08",
-    Icon: SiFiverr,
-  },
+  // {
+  //   name: "Fiverr",
+  //   link: "https://www.fiverr.com/mahadsheikh08",
+  //   Icon: SiFiverr,
+  // },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/mahad-sheikh-989a2924b",
