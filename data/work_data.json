@@ -56,12 +56,16 @@
       "image": "/projects/housing-disrepair-logo.png",
       "link": "https://www.housingdisrepaircompensations.co.uk/",
       "category": "Legal Services",
-      "metrics": {}
+      "metrics": {
+        "lead_increase": "50%",
+        "monthly_visitors": "3-6K"
+      },
+      "needsDarkBg": true
     },
     {
       "title": "KR Haulier",
       "description": "Precision Logistics. Global Standards. Your strategic partner for end-to-end haulage. We combine traditional reliability with modern technology to move what matters most.",
-      "tech": ["Next.js", "React", "Cloudfront", "Vercel"],
+      "tech": ["Next.js", "Cloudfront", "Vercel"],
       "image": "/projects/KR-final-dark.png",
       "link": "https://kr-haulier.vercel.app/",
       "category": "Enterprise Solutions",
