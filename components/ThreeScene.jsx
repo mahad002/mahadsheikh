@@ -91,15 +91,16 @@ function Scene() {
         <FloatingCrystal position={[0, 2, -2]} rotation={[Math.PI / 6, Math.PI / 6, 0]} scale={0.8} />
       </group>
 
-      <FloatingParticles count={80} />
+      <FloatingParticles count={50} />
 
-      <EffectComposer disableNormalPass>
+      {/* Post-processing disabled for performance */}
+      {/* <EffectComposer disableNormalPass>
         <Bloom
           intensity={1.0}
           luminanceThreshold={0.2}
           luminanceSmoothing={0.9}
         />
-      </EffectComposer>
+      </EffectComposer> */}
     </>
   );
 }
@@ -108,10 +109,10 @@ export default function ThreeScene() {
   return (
     <div className="w-full h-screen">
       <Canvas
-        dpr={[1, 1.5]}
+        dpr={1}
         camera={{ position: [0, 0, 5], fov: 75 }}
         gl={{
-          antialias: true,
+          antialias: false,
           powerPreference: "high-performance"
         }}
       >

@@ -40,24 +40,7 @@ const WorkSlider = () => {
       variants={container}
       className="space-y-12"
     >
-      {/* Technology Stack / Expertise */}
-      <motion.div variants={item} className="bg-card rounded-2xl p-8 border border-border">
-        <h3 className="text-xl font-bold mb-6">Technology Expertise</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {Object.entries(workData.technologies).map(([category, techs], index) => (
-            <div key={index}>
-              <h4 className="text-accent mb-3 capitalize">{category}</h4>
-              <ul className="space-y-2">
-                {techs.map((tech, techIndex) => (
-                  <li key={techIndex} className="text-muted text-sm">
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+      {/* Categories and Stats will remain at the top */}
 
       {/* Achievement Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -131,7 +114,11 @@ const WorkSlider = () => {
             }}
           >
             {/* Project Image - next/image for optimization + lazy load */}
-            <div className="aspect-video relative overflow-hidden bg-white/5 flex items-center justify-center p-4">
+            <div className={`aspect-video relative overflow-hidden flex items-center justify-center p-4 transition-colors duration-500 ${
+              project.needsDarkBg 
+                ? 'bg-[#0a0a0a]' 
+                : 'bg-white/5'
+            }`}>
               <Image
                 src={project.image}
                 alt={project.title}
@@ -197,6 +184,25 @@ const WorkSlider = () => {
             <div className="absolute -bottom-2 -right-2 w-24 h-24 bg-accent/5 rounded-full blur-2xl transform group-hover:scale-150 transition-transform duration-700" />
           </motion.div>
         ))}
+      </motion.div>
+
+      {/* Technology Stack / Expertise Moved Under Projects */}
+      <motion.div variants={item} className="bg-card rounded-2xl p-8 border border-border">
+        <h3 className="text-xl font-bold mb-6">Technology Expertise</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {Object.entries(workData.technologies).map(([category, techs], index) => (
+            <div key={index}>
+              <h4 className="text-accent mb-3 capitalize">{category}</h4>
+              <ul className="space-y-2">
+                {techs.map((tech, techIndex) => (
+                  <li key={techIndex} className="text-muted text-sm">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </motion.div>
 
     </motion.div>

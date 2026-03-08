@@ -24,7 +24,8 @@
         "visitors": "50K+",
         "leads": "2K+",
         "models": "10+"
-      }
+      },
+      "needsDarkBg": true
     },
     {
       "title": "GuruIsOnline",
@@ -50,7 +51,8 @@
         "bookings": "5K+",
         "fleet": "100+",
         "growth": "150%"
-      }
+      },
+      "needsDarkBg": true
     },
     {
       "title": "Housing Disrepair",

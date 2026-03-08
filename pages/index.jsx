@@ -3,8 +3,7 @@ import React, { useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import {
-  HiArrowDown, HiCode, HiOutlineGlobeAlt, HiOutlineLightningBolt,
-  HiOutlineClock, HiOutlineChartBar, HiOutlineBriefcase
+  HiArrowDown
 } from 'react-icons/hi';
 import { fadeIn } from "../variants";
 
@@ -12,16 +11,6 @@ import { fadeIn } from "../variants";
 const ThreeScene = dynamic(() => import("../components/ThreeScene"), {
   ssr: false,
 });
-import statsData from '../data/stats.json';
-import servicesData from '../data/services.json';
-import timelineData from '../data/timeline.json';
-
-// Calculate dynamic years of experience (starting from 2022)
-const calculateExperience = () => {
-  const startYear = 2022;
-  const currentYear = new Date().getFullYear();
-  return Math.max(1, currentYear - startYear + 1);
-};
 
 const Home = () => {
   return (
