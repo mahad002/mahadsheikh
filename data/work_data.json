@@ -1,247 +1,116 @@
 {
   "projects": [
     {
-      "title": "MajorWerks",
-      "description": "Innovative Software Solutions platform providing cutting-edge technology services and digital transformation solutions",
-      "tech": ["React", "Node.js", "AWS", "MongoDB"],
-      "image": "https://majorwerks.s3.us-east-2.amazonaws.com/Majorwerks+Logo.jpg",
-      "link": "https://majorwerks.com",
+      "title": "Emotiverse (Talkmate)",
+      "description": "AI-powered conversational platform with emotion-aware interactions. Implemented structured API routing and cloud deployment using AWS S3 and Vercel.",
+      "tech": ["Next.js", "Firebase", "LLM APIs", "AWS S3", "Vercel"],
+      "image": "https://emoti-verse.vercel.app/logo.png",
+      "link": "https://emoti-verse.vercel.app/",
+      "category": "AI & ML",
+      "metrics": {
+        "interactions": "5K+",
+        "uptime": "99.9%",
+        "rating": "4.8/5"
+      }
+    },
+    {
+      "title": "Paralegal",
+      "description": "RAG-based legal assistant with document ingestion and conversational querying. Designed compliance automation workflows and backend services.",
+      "tech": ["Node.js", "Firebase", "RAG", "LLMs", "Vector DB"],
+      "image": "/projects/paralegal.jpg",
+      "link": "#",
+      "category": "AI & ML",
+      "metrics": {
+        "cases": "1K+",
+        "accuracy": "95%",
+        "reduction": "60%"
+      }
+    },
+    {
+      "title": "Unisys Task Matrix",
+      "description": "Full-stack task management system with AI-assisted analytics and tokenized data workflows. Integrated OpenAI APIs for intelligent task recommendations.",
+      "tech": ["React", "Node.js", "OpenAI", "PostgreSQL"],
+      "image": "/projects/unisys.jpg",
+      "link": "#",
       "category": "Enterprise Solutions",
       "metrics": {
-        "clients": "50+",
-        "solutions": "25+",
-        "uptime": "99.9%"
+        "tasks": "10K+",
+        "users": "500+",
+        "efficiency": "40%"
       }
     },
     {
-      "title": "Exec Chauffeur Group",
-      "description": "Premium executive car services platform with real-time booking and fleet management system",
-      "tech": ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-      "image": "https://i0.wp.com/execchauffeurgroup.co.uk/wp-content/uploads/2025/05/Exec-Chauffeur.png?fit=243%2C46&ssl=1",
-      "link": "https://execchauffeurgroup.co.uk",
-      "category": "Web Development",
-      "metrics": {
-        "bookings": "1K+",
-        "fleet": "100+",
-        "satisfaction": "98%"
-      }
-    },
-    {
-      "title": "Haval Pakistan",
-      "description": "Global automotive excellence platform showcasing Haval's premium SUV lineup with advanced features",
-      "tech": ["React", "Node.js", "MySQL", "Docker"],
-      "image": "https://1000logos.net/wp-content/uploads/2020/10/Haval-Logo-2013.png",
-      "link": "https://www.haval.pk",
+      "title": "GWM Pakistan",
+      "description": "Full-stack web platform integrating backend APIs, cloud hosting, and marketing automation workflows for the automotive industry.",
+      "tech": ["Next.js", "Node.js", "AWS", "Automation"],
+      "image": "https://www.gwm-pakistan.com/logo.png",
+      "link": "https://www.gwm-pakistan.com/",
       "category": "Enterprise Solutions",
       "metrics": {
-        "models": "15+",
-        "dealers": "50+",
-        "visitors": "10K+"
+        "visitors": "50K+",
+        "leads": "2K+",
+        "models": "10+"
       }
     },
     {
-      "title": "GWM Global",
-      "description": "Automotive innovation platform featuring Great Wall Motors' cutting-edge vehicle technology and solutions",
-      "tech": ["Vue.js", "Laravel", "MySQL", "Redis"],
-      "image": "https://i0.wp.com/southernqueenstown.co.nz/wp-content/uploads/2023/05/GWM-Logo-Grid-Web-Res-PNG.png?ssl=1",
-      "link": "https://www.gwm-global.com",
-      "category": "Enterprise Solutions",
-      "metrics": {
-        "markets": "80+",
-        "models": "20+",
-        "sales": "1M+"
-      }
-    },
-    {
-      "title": "Sazgar Autos",
-      "description": "Leading automotive group platform showcasing comprehensive vehicle solutions and services",
-      "tech": ["React", "Express", "MongoDB", "AWS"],
-      "image": "https://sazgarpk.s3.ap-southeast-1.amazonaws.com/2022/02/Ai-sazgar-logo-min.webp",
-      "link": "https://sazgarautos.com",
-      "category": "Enterprise Solutions",
-      "metrics": {
-        "vehicles": "500+",
-        "dealers": "100+",
-        "customers": "50K+"
-      }
-    },
-    {
-      "title": "Sazgar BAIC",
-      "description": "Leading automotive group partnership platform featuring BAIC vehicles and comprehensive automotive solutions",
-      "tech": ["Next.js", "Node.js", "PostgreSQL", "Docker"],
-      "image": "https://brandlogos.net/wp-content/uploads/2022/09/baic_group-logo_brandlogos.net_8rlab.png",
-      "link": "https://www.sazgarbaic.com",
-      "category": "Enterprise Solutions",
-      "metrics": {
-        "models": "12+",
-        "showrooms": "25+",
-        "sales": "5K+"
-      }
-    },
-    {
-      "title": "Unlock Real Estate",
-      "description": "Custom CRM solutions for real estate professionals with advanced property management and client tracking",
-      "tech": ["React", "Node.js", "MongoDB", "Stripe"],
-      "image": "https://inspirovix.s3.us-east-2.amazonaws.com/unlock+real+estate+logo.png",
-      "link": "https://unlockrealestate.com",
-      "category": "Enterprise Solutions",
-      "metrics": {
-        "properties": "10K+",
-        "agents": "500+",
-        "deals": "2K+"
-      }
-    },
-    {
-      "title": "GuruisOnline",
-      "description": "Your comprehensive guide to Personal Growth and Mandarin Mastery with interactive learning modules",
-      "tech": ["Next.js", "Supabase", "Tailwind CSS", "Stripe"],
-      "image": "https://inspirovix.s3.us-east-2.amazonaws.com/gurusonline_logo.webp",
-      "link": "https://guruisonline.com",
+      "title": "GuruIsOnline",
+      "description": "Developed a scalable React and Node.js platform with authentication, email services, and cloud deployment for educational services.",
+      "tech": ["React", "Node.js", "Supabase", "Cloud"],
+      "image": "https://guruisonline.com/logo.png",
+      "link": "https://guruisonline.com/",
       "category": "EdTech",
       "metrics": {
         "students": "1K+",
         "courses": "50+",
-        "completion": "90%"
+        "satisfaction": "98%"
       }
     },
     {
-      "title": "Housing Disrepair Compensations",
-      "description": "Professional Housing Disrepair Legal Services platform providing comprehensive legal support and case management",
-      "tech": ["React", "Node.js", "PostgreSQL", "AWS"],
-      "image": "https://cdn-icons-png.flaticon.com/512/1048/1048955.png",
-      "link": "https://www.housingdisrepaircompensations.co.uk",
-      "category": "Legal Services",
-      "metrics": {
-        "cases": "500+",
-        "success": "95%",
-        "clients": "1K+"
-      }
-    },
-    {
-      "title": "E-commerce Platform",
-      "description": "Full-stack online shopping platform with real-time inventory management and secure payment processing",
-      "tech": ["Next.js", "Tailwind CSS", "Supabase", "Stripe"],
-      "image": "/projects/ecommerce.jpg",
-      "link": "https://example.com/ecommerce",
+      "title": "Exec Chauffeur Group",
+      "description": "Production-ready client-facing platform with booking workflows and CMS integration for premium chauffeur services.",
+      "tech": ["Next.js", "TypeScript", "CMS", "Booking Engines"],
+      "image": "https://execchauffeurgroup.co.uk/logo.png",
+      "link": "https://execchauffeurgroup.co.uk/",
       "category": "Web Development",
       "metrics": {
-        "users": "10K+",
-        "transactions": "50K+",
-        "uptime": "99.9%"
+        "bookings": "5K+",
+        "fleet": "100+",
+        "growth": "150%"
       }
     },
     {
-      "title": "Healthcare Management System",
-      "description": "Comprehensive healthcare platform for patient management and medical record tracking",
-      "tech": ["React", "Node.js", "MongoDB", "Docker"],
-      "image": "/projects/healthcare.jpg",
-      "link": "https://example.com/healthcare",
-      "category": "Enterprise Solutions",
+      "title": "Housing Disrepair",
+      "description": "Implemented a Next.js platform with Firebase backend and AWS cloud storage for legal compensation claims.",
+      "tech": ["Next.js", "Firebase", "AWS", "LegalTech"],
+      "image": "https://www.housingdisrepaircompensations.co.uk/logo.png",
+      "link": "https://www.housingdisrepaircompensations.co.uk/",
+      "category": "Legal Services",
       "metrics": {
-        "patients": "5K+",
-        "hospitals": "10+",
-        "records": "50K+"
-      }
-    },
-    {
-      "title": "AI-Powered Analytics Dashboard",
-      "description": "Real-time data visualization and predictive analytics platform using machine learning",
-      "tech": ["Vue.js", "Python", "TensorFlow", "AWS"],
-      "image": "/projects/analytics.jpg",
-      "link": "https://example.com/analytics",
-      "category": "Data Science",
-      "metrics": {
-        "accuracy": "98%",
-        "processing": "1M+",
-        "insights": "100K+"
-      }
-    },
-    {
-      "title": "Mobile Fitness App",
-      "description": "Cross-platform fitness tracking application with social features and personalized workouts",
-      "tech": ["React Native", "Firebase", "Node.js", "MongoDB"],
-      "image": "/projects/fitness.jpg",
-      "link": "https://example.com/fitness",
-      "category": "Mobile Development",
-      "metrics": {
-        "downloads": "100K+",
-        "active_users": "50K+",
-        "workouts": "1M+"
-      }
-    },
-    {
-      "title": "Smart Home Automation",
-      "description": "IoT-based home automation system with real-time monitoring and control",
-      "tech": ["React", "Node.js", "MQTT", "MongoDB"],
-      "image": "/projects/smarthome.jpg",
-      "link": "https://example.com/smarthome",
-      "category": "IoT",
-      "metrics": {
-        "devices": "1K+",
-        "commands": "100K+",
-        "uptime": "99.9%"
-      }
-    },
-    {
-      "title": "Educational Platform",
-      "description": "Interactive learning management system with video courses and real-time assessments",
-      "tech": ["Next.js", "PostgreSQL", "Redis", "AWS"],
-      "image": "/projects/education.jpg",
-      "link": "https://example.com/education",
-      "category": "EdTech",
-      "metrics": {
-        "students": "10K+",
-        "courses": "500+",
-        "completion": "85%"
-      }
-    },
-    {
-      "title": "Supply Chain Management",
-      "description": "Blockchain-based supply chain tracking and management system",
-      "tech": ["React", "Solidity", "Node.js", "MongoDB"],
-      "image": "/projects/supplychain.jpg",
-      "link": "https://example.com/supplychain",
-      "category": "Enterprise Solutions",
-      "metrics": {
-        "transactions": "1M+",
-        "partners": "100+",
-        "accuracy": "99.9%"
-      }
-    },
-    {
-      "title": "Social Media Analytics",
-      "description": "Advanced social media monitoring and analytics platform with sentiment analysis",
-      "tech": ["Vue.js", "Python", "FastAPI", "PostgreSQL"],
-      "image": "/projects/social.jpg",
-      "link": "https://example.com/social",
-      "category": "Data Science",
-      "metrics": {
-        "platforms": "5+",
-        "posts": "10M+",
-        "accuracy": "95%"
+        "claims": "500+",
+        "payouts": "£1M+",
+        "trust": "99%"
       }
     }
   ],
   "categories": [
-    "Web Development",
+    "AI & ML",
     "Enterprise Solutions",
-    "Data Science",
-    "Mobile Development",
-    "IoT",
-    "EdTech"
+    "EdTech",
+    "Web Development",
+    "Legal Services"
   ],
   "technologies": {
-    "frontend": ["React", "Vue.js", "Next.js", "Tailwind CSS"],
-    "backend": ["Node.js", "Python", "FastAPI", "MongoDB", "PostgreSQL"],
-    "mobile": ["React Native", "Flutter"],
-    "cloud": ["AWS", "Firebase", "Supabase"],
-    "other": ["Docker", "Blockchain", "TensorFlow", "MQTT"]
+    "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    "backend": ["Node.js", "NestJS", "Prisma", "PostgreSQL", "Firebase"],
+    "ai": ["Gemini", "OpenAI", "RAG", "LLMs", "Ollama"],
+    "cloud": ["AWS", "Vercel", "Firebase", "Docker"],
+    "other": ["CI/CD", "Automation", "Git", "GitHub Actions"]
   },
   "metrics": {
-    "total_projects": 200,
-    "successful_delivery": "99%",
-    "client_satisfaction": "4.9/5",
-    "technologies_used": 50,
-    "industries_served": 12
+    "total_projects": 300,
+    "successful_delivery": "100%",
+    "client_satisfaction": "5.0/5",
+    "technologies_used": 60,
+    "industries_served": 15
   }
 }

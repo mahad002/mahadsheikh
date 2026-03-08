@@ -4,7 +4,6 @@ import { useState } from "react";
 import CountUp from "react-countup";
 import { useTheme } from '../../components/ThemeProvider';
 import Avatar from "../../components/Avatar";
-import Circles from "../../components/Circles";
 import { fadeIn } from "../../variants";
 
 // Import data
@@ -88,7 +87,6 @@ const About = () => {
 
   return (
     <div className="h-full py-32 text-center xl:text-left">
-      <Circles />
 
       <motion.div
         variants={fadeIn("right", 0.2)}

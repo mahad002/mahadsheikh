@@ -1,24 +1,38 @@
 {
   "experience": [
     {
-      "title": "Full Stack Developer",
-      "company": "DETECON Consulting",
-      "period": "2023",
-      "description": "Led development of enterprise applications and provided technical consulting services",
-      "technologies": ["React", "Node.js", "AWS", "PostgreSQL"]
+      "title": "Software and AI Engineer",
+      "company": "Cognitive Healthcare International",
+      "period": "11/2025 – Current",
+      "description": "Designed and implemented an AI-assisted clinical decision support system using Gemini and OpenAI APIs, integrating external medical databases (NIH) within an agent-based workflow architecture. Architected and developed an Inventory Management System using Next.js, NestJS, Prisma, and PostgreSQL.",
+      "technologies": ["Gemini", "OpenAI", "Next.js", "NestJS", "Prisma", "PostgreSQL", "TypeScript"]
     },
     {
-      "title": "Full Stack Developer",
-      "company": "Cognitive Healthcare International",
-      "period": "2023",
-      "description": "Built scalable healthcare solutions and patient management systems",
-      "technologies": ["Next.js", "Express", "MongoDB", "Docker"]
+      "title": "Founder",
+      "company": "Inspirovix",
+      "period": "03/2025 – Current",
+      "description": "Founded and lead a web and AI solutions studio delivering scalable full-stack systems for international clients. Developed AI-integrated systems including conversational agents, RAG-based assistants, and business automation platforms.",
+      "technologies": ["Next.js", "Node.js", "Firebase", "AWS", "RAG", "LLMs", "CI/CD"]
     },
     {
-      "title": "Flutter Developer",
+      "title": "Full Stack Developer (Intern)",
+      "company": "DETECON International",
+      "period": "07/2023 – 08/2023",
+      "description": "Architected and developed enterprise web platforms for ALDAR using React.js, NestJS, and PostgreSQL. Implemented CI/CD pipelines using Docker and GitHub Actions.",
+      "technologies": ["React", "NestJS", "PostgreSQL", "Docker", "GitHub Actions"]
+    },
+    {
+      "title": "Intern Project Manager & Full Stack Developer",
       "company": "Cognitive Healthcare International",
-      "period": "2022",
-      "description": "Developed cross-platform mobile applications for healthcare sector",
+      "period": "07/2023 – 08/2023",
+      "description": "Led a team of 8 developers on the Charms HMS platform. Directed frontend modernization from legacy systems to React-based architecture.",
+      "technologies": ["React", "Leadership", "Product Management"]
+    },
+    {
+      "title": "Intern Mobile Developer",
+      "company": "Cognitive Healthcare International",
+      "period": "07/2022 – 08/2022",
+      "description": "Developed cross-platform mobile applications for healthcare sector using Flutter.",
       "technologies": ["Flutter", "Firebase", "REST APIs"]
     }
   ]
