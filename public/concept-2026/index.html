@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css">
 <link rel="stylesheet" href="style.css">
 <script src="data.js"></script>
 </head>
@@ -222,8 +223,15 @@
         <p class="rev-note"><span class="stars">★★★★★</span>Word for word from Fiverr, Aug 2024 – Aug 2025. Many clients came back for more than one project, and studio and direct work isn’t reviewed there. That’s how 97 clients add up to 200+ projects.</p>
       </div>
       <div class="filters" id="revFilters" role="group" aria-label="Filter reviews by country"></div>
-      <div class="rev-wall" id="revWall"></div>
-      <div class="rev-more"><button class="btn btn-line" id="revMore">Show all feedback</button></div>
+      <!-- Coverflow deck: same Swiper 11 coverflow as the live site's TestimonialSlider, opened up into a collage -->
+      <div class="swiper rev-deck" id="revDeck" aria-roledescription="carousel" aria-label="Client feedback">
+        <div class="swiper-wrapper" id="revWall"></div>
+      </div>
+      <div class="deck-ui">
+        <button class="deck-btn" id="deckPrev" aria-label="Previous feedback"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 3L5 8l5 5"/></svg></button>
+        <span class="deck-count" id="deckCount" aria-live="polite"></span>
+        <button class="deck-btn" id="deckNext" aria-label="Next feedback"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+      </div>
     </div>
   </section>
 
@@ -267,6 +275,7 @@
 <footer class="site"><div class="wrap"><span>© 2026 Muhammad Mahad Sheikh · Islamabad</span><a href="#top">Back to top ↑</a></div></footer>
 
 <div class="cursor" id="cursor" aria-hidden="true"><span>Open</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12L12 4M5 4h7v7"/></svg></div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script>
 <script src="reviews.js"></script>
 <script src="app.js"></script>
 <script src="sections.js"></script>

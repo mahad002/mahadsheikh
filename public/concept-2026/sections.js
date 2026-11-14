@@ -31,29 +31,42 @@
   window.COUNTRY_COUNTS = list;
 
   /* ---------- reviews wall ---------- */
-  const wall = document.getElementById('revWall'), more = document.getElementById('revMore'), fl = document.getElementById('revFilters');
+  const wall = document.getElementById('revWall'), fl = document.getElementById('revFilters');
   if (!wall) return;
   const fmt = t => new Date(t + 'T00:00:00').toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
   const stars = r => '★'.repeat(Math.round(r)) + '<i>' + '★'.repeat(5 - Math.round(r)) + '</i>';
-  let filter = 'all', showAll = false;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let filter = 'all', deck = null;
   const top = list.filter(c => c.n >= 4).slice(0, 7);
   fl.innerHTML = `<button aria-pressed="true" data-f="all">All countries</button>` +
     top.map(c => `<button aria-pressed="false" data-f="${c.cc}"><img src="flags/${c.cc}.svg" alt="" width="18" height="13">${c.name}<sup>${c.n}</sup></button>`).join('') +
     `<button aria-pressed="false" data-f="rest">${list.filter(c => c.n && c.n < 4).length} more countries<sup>${R.filter(r => counts[r.cc].n < 4).length}</sup></button>`;
+  const count = document.getElementById('deckCount');
   const render = () => {
     const rows = R.filter(r => filter === 'all' || (filter === 'rest' ? counts[r.cc].n < 4 : r.cc === filter));
-    const shown = showAll || filter !== 'all' ? rows : rows.slice(0, 12);
-    wall.innerHTML = shown.map(r => `
-      <figure class="rev">
-        <div class="rev-top"><span class="av">${(r.i || '•').charAt(0).toUpperCase()}</span><div><b><img src="flags/${r.cc}.svg" alt="" width="18" height="13"><span>${r.c.replace('Palestinian Territories', 'Palestine')}</span></b><small><span class="rs" aria-label="${r.r} out of 5">${stars(r.r)}</span>${fmt(r.t)}</small></div></div>
-        <blockquote>${r.q.replace(/</g, '&lt;')}</blockquote>
-      </figure>`).join('');
-    more.hidden = showAll || filter !== 'all';
+    wall.innerHTML = rows.map((r, k) => `
+      <div class="swiper-slide" style="--k:${k % 5}">
+        <figure class="rev">
+          <div class="rev-top"><span class="av">${(r.i || '•').charAt(0).toUpperCase()}</span><div><b><img src="flags/${r.cc}.svg" alt="" width="18" height="13"><span>${r.c.replace('Palestinian Territories', 'Palestine')}</span></b><small><span class="rs" aria-label="${r.r} out of 5">${stars(r.r)}</span>${fmt(r.t)}</small></div></div>
+          <blockquote>${r.q.replace(/</g, '&lt;')}</blockquote>
+        </figure>
+      </div>`).join('');
+    if (deck) deck.destroy(true, true);
+    const n = rows.length;
+    const upd = s => { count.textContent = `${String(s.realIndex + 1).padStart(2, '0')} / ${n}`; };
+    deck = new Swiper('#revDeck', {
+      effect: 'coverflow', grabCursor: true, centeredSlides: true, slidesPerView: 'auto',
+      loop: n > 8, slideToClickedSlide: true, speed: reduce ? 0 : 650,
+      keyboard: { enabled: true, onlyInViewport: true },
+      navigation: { nextEl: '#deckNext', prevEl: '#deckPrev' },
+      coverflowEffect: { rotate: 26, stretch: 0, depth: 170, modifier: 1, slideShadows: false },
+      on: { slideChange: upd }
+    });
+    deck.slideToLoop(0, 0, false); upd(deck);
   };
   fl.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     filter = b.dataset.f; fl.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); render();
   });
-  more.addEventListener('click', () => { showAll = true; render(); });
   render();
 })();
