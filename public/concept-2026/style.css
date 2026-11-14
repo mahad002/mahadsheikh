@@ -410,6 +410,9 @@ footer.site a:hover { color: var(--ink); }
 
 /* ---------- reviews wall ---------- */
 .rev-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
+.rev-note { max-width: 46ch; color: var(--muted); font-size: 15px; }
+.rev-note .stars { display: block; color: var(--red); letter-spacing: 3px; font-size: 18px; margin-bottom: 6px; }
+.rev-head h2 { max-width: 16ch; }
 .rev-score { display: flex; align-items: center; gap: 16px; }
 .rev-score b { font: 800 clamp(4rem, 7vw, 6rem)/.85 var(--display); font-variation-settings: "wdth" 80; letter-spacing: -.04em; }
 .rev-score span { display: block; font-size: 14px; color: var(--muted); line-height: 1.5; }

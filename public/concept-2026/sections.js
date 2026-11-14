@@ -18,7 +18,9 @@
     </article>`).join('');
 
   /* ---------- countries ---------- */
-  const R = window.REVIEWS || [];
+  // Hidden from the site at the owner's request (kept in reviews.js). Remove a code from this list to show it again.
+  const HIDDEN = ['il'];
+  const R = (window.REVIEWS || []).filter(r => !HIDDEN.includes(r.cc));
   const counts = {};
   R.forEach(r => { counts[r.cc] = counts[r.cc] || { name: r.c, n: 0 }; counts[r.cc].n++; });
   const extra = { sg: { name: 'Singapore', note: 'GuruIsOnline' } };
@@ -35,7 +37,7 @@
   const stars = r => '★'.repeat(Math.round(r)) + '<i>' + '★'.repeat(5 - Math.round(r)) + '</i>';
   let filter = 'all', showAll = false;
   const top = list.filter(c => c.n >= 4).slice(0, 7);
-  fl.innerHTML = `<button aria-pressed="true" data-f="all">All<sup>${R.length}</sup></button>` +
+  fl.innerHTML = `<button aria-pressed="true" data-f="all">All countries</button>` +
     top.map(c => `<button aria-pressed="false" data-f="${c.cc}"><img src="flags/${c.cc}.svg" alt="" width="18" height="13">${c.name}<sup>${c.n}</sup></button>`).join('') +
     `<button aria-pressed="false" data-f="rest">${list.filter(c => c.n && c.n < 4).length} more countries<sup>${R.filter(r => counts[r.cc].n < 4).length}</sup></button>`;
   const render = () => {
