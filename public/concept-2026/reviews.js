@@ -49,7 +49,7 @@ window.REVIEWS = [
 "q": "He was very quick, we agreed maximum 34 hours and he delivered in less than 24. Very fast in reply and very smart."
 },
 {
-"i": "AMAAN667",
+"i": "A",
 "c": "United Kingdom",
 "cc": "gb",
 "r": 5.0,
@@ -73,7 +73,7 @@ window.REVIEWS = [
 "q": "fast and efficient 100%."
 },
 {
-"i": "DARCYAVA",
+"i": "D",
 "c": "United Kingdom",
 "cc": "gb",
 "r": 5.0,
@@ -225,7 +225,7 @@ window.REVIEWS = [
 "q": "Great work as always!"
 },
 {
-"i": "HEBA24",
+"i": "H",
 "c": "United States",
 "cc": "us",
 "r": 5.0,
@@ -249,7 +249,7 @@ window.REVIEWS = [
 "q": "Excellent work"
 },
 {
-"i": "REGALES_",
+"i": "R",
 "c": "Malaysia",
 "cc": "my",
 "r": 5.0,
@@ -257,7 +257,7 @@ window.REVIEWS = [
 "q": "Delivered as expected."
 },
 {
-"i": "OYINKE",
+"i": "O",
 "c": "Canada",
 "cc": "ca",
 "r": 5.0,
@@ -265,7 +265,7 @@ window.REVIEWS = [
 "q": "great job, did the work on time and accomodated my last minute request"
 },
 {
-"i": "REGALES_",
+"i": "R",
 "c": "Malaysia",
 "cc": "my",
 "r": 5.0,
@@ -321,7 +321,7 @@ window.REVIEWS = [
 "q": "Really good - would recommend"
 },
 {
-"i": "REGALES_",
+"i": "R",
 "c": "Malaysia",
 "cc": "my",
 "r": 5.0,
@@ -361,7 +361,7 @@ window.REVIEWS = [
 "q": "fast work great feedback"
 },
 {
-"i": "NIKHILPATEL506",
+"i": "N",
 "c": "United Kingdom",
 "cc": "gb",
 "r": 5.0,
@@ -377,7 +377,7 @@ window.REVIEWS = [
 "q": "Looking forward to work with him again"
 },
 {
-"i": "BABBAAA",
+"i": "B",
 "c": "Germany",
 "cc": "de",
 "r": 5.0,
@@ -409,7 +409,7 @@ window.REVIEWS = [
 "q": "Very great seller worked with me on the project and did everything I asked for even made edits when needed. I will work with him in the near future. Definitely your go to guy for projects"
 },
 {
-"i": "RENXURU",
+"i": "R",
 "c": "Qatar",
 "cc": "qa",
 "r": 5.0,
@@ -417,7 +417,7 @@ window.REVIEWS = [
 "q": "Delivered faster than expected. Excellent freelancer."
 },
 {
-"i": "RENXURU",
+"i": "R",
 "c": "Qatar",
 "cc": "qa",
 "r": 5.0,
@@ -481,7 +481,7 @@ window.REVIEWS = [
 "q": "perfect work, next order again by mahad"
 },
 {
-"i": "F5_AII",
+"i": "F",
 "c": "United Arab Emirates",
 "cc": "ae",
 "r": 4.7,
@@ -489,7 +489,7 @@ window.REVIEWS = [
 "q": "It was a really great experience to have Mahad help me last minute for my assignment. Appreciate the work he did with a short span of time. Would recommend everyone to contact him regarding any works you have."
 },
 {
-"i": "RENXURU",
+"i": "R",
 "c": "Qatar",
 "cc": "qa",
 "r": 5.0,
@@ -497,7 +497,7 @@ window.REVIEWS = [
 "q": "He did really well. mr. mahad was professional. He was very understanding and has a elegant approach to coding. I would highly recommend him."
 },
 {
-"i": "HAM939",
+"i": "H",
 "c": "Pakistan",
 "cc": "pk",
 "r": 5.0,
@@ -657,7 +657,7 @@ window.REVIEWS = [
 "q": "Really good and fast delivery! He delivered what’s I want. Thanks! Recommend"
 },
 {
-"i": "SHAHNAM_",
+"i": "S",
 "c": "Pakistan",
 "cc": "pk",
 "r": 5.0,
@@ -681,7 +681,7 @@ window.REVIEWS = [
 "q": "Very professional. Delivered early and answered all of my questions I asked."
 },
 {
-"i": "MAGNISAMA",
+"i": "M",
 "c": "Saudi Arabia",
 "cc": "sa",
 "r": 5.0,

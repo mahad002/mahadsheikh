@@ -24,7 +24,7 @@
     const shots = ['gwm', 'somara', 'isra', 'bunai', 'emotiverse', 'exec', 'guru', 'inspirovix'];
     const lanes = Array.from({ length: 5 }, (_, l) => Array.from({ length: 4 }, (_, k) => shots[(l * 3 + k) % shots.length]));
     plane.innerHTML = lanes.map(l => {
-      const items = l.map(id => `<a href="${id === 'inspirovix' ? 'https://www.inspirovix.com/' : 'work.html?p=' + id}" tabindex="-1" aria-hidden="true"><img src="img/${id}.jpg" alt="" width="1440" height="900" decoding="async"></a>`).join('');
+      const items = l.map(id => `<a href="${id === 'inspirovix' ? 'https://www.inspirovix.com/' : 'work.html?p=' + id}" tabindex="-1" aria-hidden="true"><img src="img/${id}.webp" alt="" width="1440" height="900" decoding="async"></a>`).join('');
       return `<div class="lane">${items}${items}</div>`;
     }).join('');
     const pause = document.getElementById('pause');
@@ -81,11 +81,11 @@
   if (wall) {
     // rows of the wall; each card's width follows its image's own proportions, so a row shares one height and nothing is cropped
     const ROWS = [
-      [['gwm', 'img/gwm.jpg', 1440, 900], ['somara', 'img/somara.jpg', 1440, 900]],
-      [['guru', 'img/guru-set.jpg', 1600, 900], ['bunai', 'img/bunai-set.jpg', 1600, 900]],
-      [['emotiverse', 'img/emotiverse.jpg', 1440, 900], ['exec', 'img/exec-set.jpg', 1600, 900], ['isra', 'img/isra.jpg', 1440, 900]],
-      [['majorwerks', 'img/majorwerks-set.jpg', 1600, 900], ['wecarhire', 'img/wecarhire-set.jpg', 1600, 900]],
-      [['phone2door', 'img/phone2door-set.jpg', 1600, 900], ['housing', 'img/housing-set.jpg', 1600, 900], ['weather', 'img/weather.jpg', 1400, 815]]
+      [['gwm', 'img/gwm.webp', 1440, 900], ['somara', 'img/somara.webp', 1440, 900]],
+      [['guru', 'img/guru-set.webp', 1600, 900], ['bunai', 'img/bunai-set.webp', 1600, 900]],
+      [['emotiverse', 'img/emotiverse.webp', 1440, 900], ['exec', 'img/exec-set.webp', 1600, 900], ['isra', 'img/isra.webp', 1440, 900]],
+      [['majorwerks', 'img/majorwerks-set.webp', 1600, 900], ['wecarhire', 'img/wecarhire-set.webp', 1600, 900]],
+      [['phone2door', 'img/phone2door-set.webp', 1600, 900], ['housing', 'img/housing-set.webp', 1600, 900], ['weather', 'img/weather.webp', 1400, 815]]
     ];
     wall.innerHTML = ROWS.map(row => `<div class="row">${row.map(([id, src, w, h]) => { const p = byId[id]; return `
       <a class="tile" style="--r:${(w / h).toFixed(4)}" href="work.html?p=${p.id}" data-id="${p.id}" data-tag="${p.tag}">

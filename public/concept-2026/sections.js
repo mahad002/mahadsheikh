@@ -45,7 +45,7 @@
     const shown = showAll || filter !== 'all' ? rows : rows.slice(0, 12);
     wall.innerHTML = shown.map(r => `
       <figure class="rev">
-        <div class="rev-top"><span class="av">${r.i}</span><div><b><img src="flags/${r.cc}.svg" alt="" width="18" height="13">${r.c.replace('Palestinian Territories', 'Palestine')}</b><span>${fmt(r.t)}</span></div><span class="rs" aria-label="${r.r} out of 5">${stars(r.r)}</span></div>
+        <div class="rev-top"><span class="av">${(r.i || '•').charAt(0).toUpperCase()}</span><div><b><img src="flags/${r.cc}.svg" alt="" width="18" height="13"><span>${r.c.replace('Palestinian Territories', 'Palestine')}</span></b><small><span class="rs" aria-label="${r.r} out of 5">${stars(r.r)}</span>${fmt(r.t)}</small></div></div>
         <blockquote>${r.q.replace(/</g, '&lt;')}</blockquote>
       </figure>`).join('');
     more.hidden = showAll || filter !== 'all';
