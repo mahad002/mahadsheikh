@@ -92,7 +92,7 @@ h3 { font-size: clamp(1.4rem, 2.2vw, 1.9rem); letter-spacing: -.02em; line-heigh
   transform: rotateX(calc(32deg + var(--my) * -4deg)) rotateZ(-12deg) rotateY(calc(var(--mx) * 5deg)); transform-style: preserve-3d; }
 .h-glow { position: absolute; left: 50%; top: 46%; width: min(1100px, 120vw); aspect-ratio: 1; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(255, 61, 46, .28) 0%, rgba(255, 61, 46, .08) 35%, transparent 62%); pointer-events: none; }
 .h-name { position: absolute; left: 50%; top: calc(var(--nav-h) + 2svh); transform: translate3d(calc(-50% + var(--mx) * var(--d)), calc(var(--my) * var(--d) * .6), 0);
-  font: 800 min(27vw, 46svh)/.8 var(--display); font-variation-settings: "wdth" 75; letter-spacing: -.04em; white-space: nowrap; pointer-events: none; user-select: none; }
+  font: 800 min(27vw, 46svh)/.88 var(--display); font-variation-settings: "wdth" 75; letter-spacing: -.04em; white-space: nowrap; pointer-events: none; user-select: none; }
 .h-name span { display: inline-block; }
 .h-name.back { --d: -14px; color: var(--bone); z-index: 1; }
 .h-name.front { --d: -22px; color: transparent; -webkit-text-stroke: 1.5px var(--red); z-index: 3; opacity: .9; }
@@ -126,7 +126,7 @@ h3 { font-size: clamp(1.4rem, 2.2vw, 1.9rem); letter-spacing: -.02em; line-heigh
 /* entrance: letters rise, the photo settles, the outline draws in */
 .h-name span { transform: translateY(105%); opacity: 0; animation: letter .9s var(--ease-out) forwards; animation-delay: calc(.1s + var(--i) * 60ms); }
 .h-name.front span { animation-delay: calc(.35s + var(--i) * 60ms); }
-.h-name { overflow: hidden; padding-top: .04em; }
+.h-name { overflow: hidden; padding: .1em .04em 0; }
 .h-me { animation: me 1.2s .15s var(--ease-out) backwards; }
 .h-bg { animation: bgin 1.8s .3s var(--ease-out) backwards; }
 @keyframes bgin { from { opacity: 0; } }
@@ -252,7 +252,7 @@ a.now:hover .go { background: var(--red); border-color: var(--red); color: var(-
 .music p { color: #4a4740; max-width: 44ch; margin-bottom: 30px; }
 .music .big { font: 800 clamp(5rem, 13vw, 11rem)/.85 var(--display); font-variation-settings: "wdth" 84; letter-spacing: -.035em; color: #0A0A0B; }
 .music .big small { display: block; font: 500 14px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: #5b5750; margin-top: 14px; }
-.music .btn-dark { background: #0A0A0B; color: var(--bone); }
+.music .btn-dark { background: #0A0A0B; color: var(--bone); border: 1px solid #0A0A0B; }
 .music .btn-dark:hover { transform: translateY(-2px); background: #222; }
 .music .btn-ghost { border: 1px solid rgba(0,0,0,.2); color: #0A0A0B; }
 .music .btn-ghost:hover { border-color: #0A0A0B; transform: translateY(-2px); }
@@ -261,6 +261,8 @@ a.now:hover .go { background: var(--red); border-color: var(--red); color: var(-
 .wave i:nth-child(7n) { background: var(--red); }
 @keyframes wave { 0% { transform: scaleY(.35); } 100% { transform: scaleY(1); } }
 .music.paused .wave i { animation-play-state: paused; }
+.music .spotify { display: block; width: 100%; border: 0; border-radius: 12px; margin-top: 24px; background: #0A0A0B; }
+.wave { height: 90px; }
 
 /* ---------- contact ---------- */
 .contact { text-align: left; }
@@ -337,7 +339,7 @@ footer.site a:hover { color: var(--ink); }
   .nav.open .btn { display: inline-flex; order: 4; margin-top: 24px; }
   .hero { height: auto; min-height: 0; padding-bottom: 32px; }
   .h-stage { position: relative; height: min(66svh, 560px); margin-top: var(--nav-h); }
-  .h-name { top: 4%; font-size: 30vw; }
+  .h-name { top: 2%; font-size: 30vw; }
   .h-me { height: 92%; }
   .h-ui { position: static; flex-direction: column; align-items: stretch; margin-top: 20px; }
   .h-left { max-width: none; }
