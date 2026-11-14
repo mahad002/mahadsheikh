@@ -26,6 +26,8 @@
       <ul id="menu">
         <li><a href="#work">Work</a></li>
         <li><a href="#ai">AI</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#story">Story</a></li>
         <li><a href="#music">Music</a></li>
       </ul>
@@ -163,6 +165,17 @@
     </div>
   </section>
 
+  <!-- STACK -->
+  <section class="block" id="stack">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="mono kicker">Tools &amp; stack</span><h2>What I build with.</h2></div>
+        <p>Everything here I've used hands-on in shipped work. The last group is what my teams build in, under my management.</p>
+      </div>
+      <div class="stack-grid" id="stackGrid"></div>
+    </div>
+  </section>
+
   <!-- STORY -->
   <section class="block" id="story">
     <div class="wrap story">
@@ -179,8 +192,24 @@
           <li><span class="when">Feb 2025 – now</span><div><h3>Founder<small>Inspirovix</small></h3><p>Web and AI studio. GWM Pakistan, GuruIsOnline, Somara Labs, Exec Chauffeur Group and 50+ more clients.</p></div></li>
           <li><span class="when">Apr 2023 – Mar 2024</span><div><h3>Top Rated freelancer, then founder<small>Fiverr → Syncdot</small></h3><p>200+ web, mobile and automation projects, 97 reviews at 4.9★, grown into an agency.</p></div></li>
           <li><span class="when">2022 – 2023</span><div><h3>Internships<small>Detecon International · CHI</small></h3><p>Enterprise platforms for ALDAR in the UAE. Led 8 developers moving a hospital system's frontend to React.</p></div></li>
-          <li><span class="when">2021 – 2025</span><div><h3>BS Software Engineering<small>FAST-NUCES Islamabad</small></h3><p>Dean's List 4×. President, FAST Blockchain Society.</p></div></li>
+          <li><span class="when">2021 – 2025</span><div><h3>BS Software Engineering<small>FAST-NUCES Islamabad</small></h3><p>Dean's List 4×. President, FAST Blockchain Society. Before that: National Science Bowl Islamabad winners, 2020.</p></div></li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORLD -->
+  <section class="block" id="world" style="padding-top:0">
+    <div class="wrap world">
+      <div class="globe-box">
+        <canvas id="globe" width="1200" height="1200" aria-label="Globe marking the countries of my clients"></canvas>
+        <span class="mono globe-hint">Drag to turn</span>
+      </div>
+      <div>
+        <span class="mono kicker">Worldwide</span>
+        <h2 style="margin:18px 0 18px">Clients in <span class="red">24 countries</span>.</h2>
+        <p class="lede" style="margin-bottom:28px">Built from Islamabad for founders and companies across North America, Europe, the Gulf and Asia.</p>
+        <ul class="countries" id="countries"></ul>
       </div>
     </div>
   </section>
@@ -188,15 +217,16 @@
   <!-- REVIEWS -->
   <section class="block" id="reviews" style="padding-top:0">
     <div class="wrap">
-      <div class="head">
-        <div><span class="mono kicker">Client reviews</span><h2>4.9 out of 5, from 97 clients.</h2></div>
-        <p>Word for word from my Fiverr reviews, 23 countries. First initial and country only.</p>
+      <div class="rev-head">
+        <div>
+          <span class="mono kicker">Client reviews</span>
+          <h2 style="margin-top:18px">What 97 clients said.</h2>
+        </div>
+        <div class="rev-score"><b>4.9</b><div><span class="stars">★★★★★</span><span>97 reviews · 23 countries<br>Aug 2024 – Aug 2025 · word for word</span></div></div>
       </div>
-      <div class="reviews">
-        <figure class="review"><blockquote>People like him are very rare in this field. What distinguishes him is his ability to understand my needs precisely and deal with them with flexibility and creativity.</blockquote><footer><span>H. · Malaysia</span><span class="stars">★★★★★</span></footer></figure>
-        <figure class="review"><blockquote>Exceptional, bug-free code with impressive attention to detail and expertise. Working with him was a breeze thanks to his proactive communication and timely delivery.</blockquote><footer><span>H. · United States</span><span class="stars">★★★★★</span></footer></figure>
-        <figure class="review"><blockquote>He was very patient with me and he took his time to show and explain every little detail. His understanding of design is very superb.</blockquote><footer><span>K. · Austria</span><span class="stars">★★★★★</span></footer></figure>
-      </div>
+      <div class="filters" id="revFilters" role="group" aria-label="Filter reviews by country"></div>
+      <div class="rev-wall" id="revWall"></div>
+      <div class="rev-more"><button class="btn btn-line" id="revMore">Show all 97 reviews</button></div>
     </div>
   </section>
 
@@ -242,6 +272,9 @@
 <footer class="site"><div class="wrap"><span>© 2026 Muhammad Mahad Sheikh · Islamabad</span><a href="#top">Back to top ↑</a></div></footer>
 
 <div class="cursor" id="cursor" aria-hidden="true"><span>Open</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12L12 4M5 4h7v7"/></svg></div>
+<script src="reviews.js"></script>
 <script src="app.js"></script>
+<script src="sections.js"></script>
+<script type="module" src="globe.js"></script>
 </body>
 </html>
