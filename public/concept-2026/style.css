@@ -452,10 +452,3 @@ footer.site a:hover { color: var(--ink); }
 .cs-meta { margin-top: 14px; color: var(--dim); font-size: 15px; }
 .fp-title { font-size: clamp(1.6rem, 3vw, 2.4rem); }
 .fp-hint { font-size: 14px; color: var(--dim); }
-
-/* ---------- test: full-length portrait, zoomed out (?hero=full) ---------- */
-.hero-full .h-me { height: min(110svh, 1240px); bottom: -22svh;
-  -webkit-mask-image: linear-gradient(180deg, #000 68%, transparent 80%); mask-image: linear-gradient(180deg, #000 68%, transparent 80%); }
-@media (max-width: 900px) {
-  .hero-full .h-me { height: 118%; bottom: -30%; }
-}
