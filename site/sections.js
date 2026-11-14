@@ -27,7 +27,7 @@
   const list = Object.entries(counts).sort((a, b) => b[1].n - a[1].n).map(([cc, v]) => ({ cc, name: v.name.replace('Palestinian Territories', 'Palestine'), n: v.n }));
   Object.entries(extra).forEach(([cc, v]) => list.push({ cc, name: v.name, note: v.note }));
   const cl = document.getElementById('countries');
-  if (cl) cl.innerHTML = list.map(c => `<li><img src="flags/${c.cc}.svg" alt="" width="24" height="18"><span>${c.name}</span><em>${c.n ? c.n + (c.n === 1 ? ' review' : ' reviews') : c.note}</em></li>`).join('');
+  if (cl) cl.innerHTML = list.map(c => `<li><img src="flags/${c.cc}.svg" alt="" width="24" height="18" loading="lazy" decoding="async"><span>${c.name}</span><em>${c.n ? c.n + (c.n === 1 ? ' review' : ' reviews') : c.note}</em></li>`).join('');
   window.COUNTRY_COUNTS = list;
 
   /* ---------- reviews wall ---------- */
@@ -50,8 +50,9 @@
       <blockquote>${r.q.replace(/</g, '&lt;')}</blockquote></figure>`;
   };
   const pb = document.getElementById('revPause');
-  let rows = [], pos = [], half = [], speed = [], drag = 0, dragV = 0, paused = reduce, hover = false, visible = true;
+  let rows = [], pos = [], half = [], speed = [], last = [], drag = 0, dragV = 0, paused = reduce, hover = false, visible = false, built = false, ticking = false;
   const render = () => {
+    built = true;
     const list2 = R.filter(r => filter === 'all' || (filter === 'rest' ? counts[r.cc].n < 4 : r.cc === filter));
     const nRows = innerWidth < 640 ? 2 : 3;
     const buckets = Array.from({ length: nRows }, () => []);
@@ -63,6 +64,7 @@
       return `<div class="rev-row" data-k="${k}"><div class="rev-track">${html}${html.replace(/<figure class="rev/g, '<figure aria-hidden="true" class="rev')}</div></div>`;
     }).join('');
     rows = [...plane.querySelectorAll('.rev-track')];
+    last = [];
     requestAnimationFrame(() => {
       half = rows.map(t => t.scrollWidth / 2);
       pos = rows.map((_, k) => -(half[k] * (0.15 + k * 0.2)));
@@ -70,19 +72,24 @@
     });
   };
   const wrap = (v, h) => h ? ((v % h) + h) % h - h : v;
+  // the loop runs only while the wall is on screen, and writes a transform only when a row actually moved
   const tick = () => {
-    if (visible && rows.length && half.length) {
+    if (!visible) { ticking = false; return; }
+    if (rows.length && half.length) {
       const auto = paused || hover || drag !== 0 ? 0 : 1;
       rows.forEach((t, k) => {
         pos[k] += speed[k] * auto + dragV;
-        t.style.transform = `translate3d(${wrap(pos[k], half[k])}px,0,0)`;
+        const x = wrap(pos[k], half[k]).toFixed(2);
+        if (x !== last[k]) { last[k] = x; t.style.transform = `translate3d(${x}px,0,0)`; }
       });
       dragV *= 0.9; if (Math.abs(dragV) < 0.05) dragV = 0;
     }
     requestAnimationFrame(tick);
   };
-  requestAnimationFrame(tick);
-  new IntersectionObserver(es => es.forEach(e => visible = e.isIntersecting)).observe(stage);
+  new IntersectionObserver(es => es.forEach(e => { visible = e.isIntersecting; if (visible && !ticking) { ticking = true; requestAnimationFrame(tick); } })).observe(stage);
+  // the 190-odd cards are built when the wall is about to scroll into view, not at page load
+  const nearWall = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { nearWall.disconnect(); if (!built) render(); } }, { rootMargin: '900px' });
+  nearWall.observe(stage);
   // drag (mouse and touch) slides every row together
   let lastX = null;
   let startX = 0, startCard = null;
@@ -134,12 +141,12 @@
   stage.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') { nudge(1); e.preventDefault(); } if (e.key === 'ArrowRight') { nudge(-1); e.preventDefault(); } });
   if (reduce) { pb.setAttribute('aria-pressed', true); pb.querySelector('span').textContent = 'Play'; }
   pb.addEventListener('click', () => { paused = !paused; pb.setAttribute('aria-pressed', paused); pb.querySelector('span').textContent = paused ? 'Play' : 'Pause'; });
-  let lastW = innerWidth; addEventListener('resize', () => { if ((innerWidth < 640) !== (lastW < 640)) render(); lastW = innerWidth; });
+  let lastW = innerWidth; addEventListener('resize', () => { if (built && (innerWidth < 640) !== (lastW < 640)) render(); lastW = innerWidth; });
   fl.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     filter = b.dataset.f; fl.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); render();
   });
-  render();
+
 
   /* freelance record: open the saved screenshots in a dialog */
   const dlg = document.getElementById('recordDialog');

@@ -24,7 +24,7 @@
     const shots = ['gwm', 'somara', 'isra', 'bunai', 'emotiverse', 'exec', 'guru', 'inspirovix'];
     const lanes = Array.from({ length: 5 }, (_, l) => Array.from({ length: 4 }, (_, k) => shots[(l * 3 + k) % shots.length]));
     plane.innerHTML = lanes.map(l => {
-      const items = l.map(id => `<a href="${id === 'inspirovix' ? 'https://www.inspirovix.com/' : 'work.html?p=' + id}" tabindex="-1" aria-hidden="true"><img src="img/${id}.webp" alt="" width="1440" height="900" decoding="async"></a>`).join('');
+      const items = l.map(id => `<a href="${id === 'inspirovix' ? 'https://www.inspirovix.com/' : 'work.html?p=' + id}" tabindex="-1" aria-hidden="true"><img src="img/t/${id}.webp" alt="" width="640" height="400" decoding="async" fetchpriority="low"></a>`).join('');
       return `<div class="lane">${items}${items}</div>`;
     }).join('');
     const pause = document.getElementById('pause');
@@ -35,15 +35,14 @@
     });
   }
 
-  /* split the big name into letters for the entrance */
-  document.querySelectorAll('.h-name').forEach(n => { n.innerHTML = [...n.textContent].map((c, i) => `<span style="--i:${i}">${c}</span>`).join(''); });
 
   /* depth: layers follow the pointer at different rates */
   if (hero && !reduce && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const stageEl = hero.querySelector('.h-stage');      // only the layers that move re-style, not the whole hero
     let tx = 0, ty = 0, cx = 0, cy = 0, run = false;
     const tick = () => {
       cx += (tx - cx) * .07; cy += (ty - cy) * .07;
-      hero.style.setProperty('--mx', cx.toFixed(4)); hero.style.setProperty('--my', cy.toFixed(4));
+      stageEl.style.setProperty('--mx', cx.toFixed(4)); stageEl.style.setProperty('--my', cy.toFixed(4));
       if (Math.abs(tx - cx) > .001 || Math.abs(ty - cy) > .001) requestAnimationFrame(tick); else run = false;
     };
     hero.addEventListener('pointermove', e => {
@@ -54,16 +53,21 @@
     hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (!run) { run = true; requestAnimationFrame(tick); } });
   }
 
-  /* GreenRock: 0 -> 9, played once when it comes into view */
-  /* GreenRock flow: pulse travels the width of the line */
-  const gf = document.querySelector('.gr-flow');
-  const setGw = () => gf && gf.style.setProperty('--gw', (gf.offsetWidth * .84) + 'px');
-  setGw(); addEventListener('resize', setGw);
+  /* pulse travel distances follow their element's size (ResizeObserver: no forced layout at start-up) */
+  const gf = document.querySelector('.gr-flow'), flow = document.getElementById('flow');
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(es => es.forEach(e => {
+      if (e.target === gf) gf.style.setProperty('--gw', (e.contentRect.width * .84) + 'px');
+      if (e.target === flow) flow.style.setProperty('--len', (e.contentRect.height - 70) + 'px');
+    }));
+    gf && ro.observe(gf); flow && ro.observe(flow);
+  }
 
-  /* pulse length for the AI flow */
-  const flow = document.getElementById('flow');
-  const setLen = () => flow && flow.style.setProperty('--len', (flow.offsetHeight - 70) + 'px');
-  setLen(); addEventListener('resize', setLen);
+  /* looping animations rest while their block is off-screen */
+  if (window.IntersectionObserver) {
+    const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('is-off', !e.isIntersecting)), { rootMargin: '100px' });
+    [hero, gf, flow].forEach(el => el && io.observe(el));
+  }
 
   /* waveform */
   const wave = document.getElementById('wave');
@@ -104,7 +108,7 @@
         };
         if (document.startViewTransition && !reduce) {
           wall.querySelectorAll('.tile').forEach((t, i) => t.style.viewTransitionName = 't' + i);
-          document.startViewTransition(go).finished.finally(() => wall.querySelectorAll('.tile').forEach(t => t.style.viewTransitionName = ''));
+          document.startViewTransition(go).finished.catch(() => {}).finally(() => wall.querySelectorAll('.tile').forEach(t => t.style.viewTransitionName = ''));
         } else go();
       });
     });

@@ -1,12 +1,13 @@
 // A dotted 3D globe with a red marker on every client country. Drag to turn; still under reduced motion.
-import createGlobe from 'https://cdn.jsdelivr.net/npm/cobe@0.6.3/+esm';
+// The library loads only when the globe is about to scroll into view, and drawing stops while it is off-screen.
 
 const LL = { us: [38, -97], ca: [56, -106], fr: [46.2, 2.2], au: [-25, 134], gb: [54, -2], my: [4.2, 102], qa: [25.3, 51.2], de: [51, 10],
   at: [47.5, 14.5], ae: [24, 54], in: [21, 78], pk: [30, 70], hk: [22.3, 114.2], pt: [39.5, -8], ma: [31.8, -7], eg: [26.8, 30.8],
   ps: [31.9, 35.2], zm: [-13, 27.8], th: [15.8, 101], sa: [23.9, 45], kr: [36.5, 128], no: [60.5, 8.5], sg: [1.35, 103.8] };
 
 const canvas = document.getElementById('globe');
-if (canvas) {
+const start = async () => {
+  const { default: createGlobe } = await import('./vendor/cobe-0.6.3.js');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const markers = (window.COUNTRY_COUNTS || []).filter(c => LL[c.cc]).map(c => ({ location: LL[c.cc], size: 0.035 + Math.min(c.n || 1, 22) * 0.0035 }));
   markers.push({ location: LL.pk, size: 0.1 });                     // home
@@ -28,4 +29,13 @@ if (canvas) {
   canvas.addEventListener('pointerup', end); canvas.addEventListener('pointercancel', end);
   requestAnimationFrame(() => canvas.style.opacity = 1);
   window.addEventListener('pagehide', () => globe.destroy());
+  // draw only while visible
+  new IntersectionObserver(es => es.forEach(e => globe.toggle(e.isIntersecting))).observe(canvas);
+};
+if (canvas) {
+  if (!window.IntersectionObserver) start();
+  else {
+    const near = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { near.disconnect(); start(); } }, { rootMargin: '700px' });
+    near.observe(canvas);
+  }
 }
