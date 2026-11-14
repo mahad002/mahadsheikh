@@ -1,0 +1,48 @@
+{
+  "framework": null,
+  "installCommand": "echo static site, nothing to install",
+  "buildCommand": "echo static site, nothing to build",
+  "outputDirectory": "site",
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/#story",
+      "permanent": true
+    },
+    {
+      "source": "/work",
+      "destination": "/#work",
+      "permanent": true
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/#reviews",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/three",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/concept-2026",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/concept-2026/:path*",
+      "destination": "/",
+      "permanent": false
+    }
+  ]
+}
