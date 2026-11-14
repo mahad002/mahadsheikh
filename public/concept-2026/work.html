@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work · Muhammad Mahad Sheikh</title>
+<meta name="description" content="A project by Muhammad Mahad Sheikh.">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,500..800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav scrolled" id="nav">
+  <div class="wrap">
+    <a class="mark" href="index.html" aria-label="Mahad Sheikh, home">mahad sheikh<i></i></a>
+    <a class="btn btn-red" href="index.html#contact" style="display:inline-flex">Let's talk</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="cs-hero">
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html#work"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h12M9 3l5 5-5 5"/></svg>All work</a></div>
+      <div class="cs-top">
+        <div class="enter">
+          <span class="mono kicker" id="k"></span>
+          <h1 id="t"></h1>
+          <p class="lede" id="l"></p>
+        </div>
+        <div class="actions" id="act"></div>
+      </div>
+      <figure class="cs-shot"><img id="hero" src="" alt=""></figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cs-body">
+        <dl class="facts"><dt>What I built</dt><dd><ul id="built"></ul></dd></dl>
+        <dl class="facts"><dt>Role</dt><dd id="role"></dd><dt style="margin-top:24px">Client</dt><dd id="client"></dd></dl>
+        <dl class="facts" id="stackBox"><dt>Stack</dt><dd><div class="chips" id="stack"></div></dd></dl>
+      </div>
+      <div class="cs-gallery" id="gallery"></div>
+      <div class="fullpage" id="full" hidden><div class="bar"><span class="mono kicker">The whole homepage</span><span class="mono">Scroll inside the frame</span></div><div class="frame" tabindex="0" aria-label="Full homepage screenshot, scrollable"><img src="" alt="" loading="lazy"></div></div>
+      <div class="next">
+        <div><span class="mono">Next project</span><br><a class="title" id="nextT" href="#"></a></div>
+        <a class="thumb" id="nextI" href="#" aria-hidden="true" tabindex="-1"><img src="" alt=""></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site"><div class="wrap"><span>© 2026 Muhammad Mahad Sheikh · Islamabad</span><a href="index.html#contact">mahad112002@gmail.com</a></div></footer>
+
+<script>
+(() => {
+  const P = window.PROJECTS, id = new URLSearchParams(location.search).get('p');
+  const i = Math.max(0, P.findIndex(p => p.id === id)), p = P[i], n = P[(i + 1) % P.length];
+  const $ = s => document.getElementById(s);
+  const arrow = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M5 4h7v7"/></svg>';
+  document.title = `${p.title} · Muhammad Mahad Sheikh`;
+  document.querySelector('meta[name=description]').content = p.line;
+  $('k').textContent = `${p.kind} · ${p.sector} · ${p.where}`;
+  $('t').textContent = p.title;
+  $('l').textContent = p.line;
+  $('hero').src = p.img; $('hero').alt = `${p.title} screens`;
+  $('act').innerHTML = p.live
+    ? `<a class="btn btn-red" href="${p.url}" target="_blank" rel="noopener">Visit ${p.urlLabel} ${arrow}</a>`
+    : `<span class="btn btn-line" style="pointer-events:none;color:var(--muted)">Site now offline · screens on request</span>`;
+  $('built').innerHTML = p.built.map(b => `<li>${b}</li>`).join('');
+  $('role').textContent = p.role;
+  $('client').textContent = `${p.sector}, ${p.where}`;
+  if (p.stack.length) $('stack').innerHTML = p.stack.map(s => `<span>${s}</span>`).join('');
+  else $('stackBox').remove();
+  $('gallery').innerHTML = p.gallery.map(g => `<figure><img src="${g}" alt="More ${p.title} screens" loading="lazy"></figure>`).join('') + (p.note ? `<p class="mono" style="text-transform:none;letter-spacing:0;font-size:14px">${p.note}</p>` : '');
+  if (p.full) { $('full').hidden = false; const im = $('full').querySelector('img'); im.src = p.full; im.alt = `${p.title} full homepage`; }
+  $('nextT').textContent = n.title; $('nextT').href = $('nextI').href = `work.html?p=${n.id}`;
+  $('nextI').querySelector('img').src = n.img;
+})();
+</script>
+</body>
+</html>
