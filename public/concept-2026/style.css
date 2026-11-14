@@ -331,11 +331,15 @@ footer.site a:hover { color: var(--ink); }
 @media (max-width: 900px) {
   .nav ul, .nav .btn { display: none; }
   .menu-btn { display: inline-flex; }
-  .nav.open { background: var(--bg); height: 100svh; align-items: flex-start; padding-top: 12px; }
-  .nav.open .wrap { flex-wrap: wrap; }
-  .nav.open ul { display: flex; flex-direction: column; width: 100%; gap: 0; margin-top: 24px; order: 3; }
-  .nav.open ul a { display: block; font: 800 44px/1.25 var(--display); font-variation-settings: "wdth" 82; color: var(--ink); padding: 8px 0; border-radius: 0; }
-  .nav.open .btn { display: inline-flex; order: 4; margin-top: 24px; }
+  .nav.open { background: var(--bg); height: 100svh; align-items: flex-start; padding-top: 12px; overflow-y: auto; }
+  .nav.open .wrap { flex-wrap: wrap; align-items: center; align-content: flex-start; row-gap: 0; }
+  .nav.open .mark { order: 1; }
+  .nav.open .menu-btn { order: 2; margin-left: auto; }
+  .nav.open nav { order: 3; flex: 0 0 100%; }
+  .nav.open ul { display: flex; flex-direction: column; width: 100%; gap: 0; margin-top: 28px; }
+  .nav.open ul a { display: block; font: 800 clamp(36px, 7vw, 56px)/1.15 var(--display); font-variation-settings: "wdth" 82; color: var(--ink); padding: 8px 0; border-radius: 0; }
+  .nav.open ul a:hover { color: var(--red); background: none; }
+  .nav.open .btn { display: inline-flex; order: 4; margin-top: 28px; }
   .hero { height: auto; min-height: 0; padding-bottom: 32px; }
   .h-stage { position: relative; height: min(66svh, 560px); margin-top: var(--nav-h); }
   .h-name { top: 2%; font-size: 30vw; }
