@@ -114,4 +114,9 @@
     filter = b.dataset.f; fl.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); render();
   });
   render();
+
+  /* freelance record: open the saved screenshots in a dialog */
+  const dlg = document.getElementById('recordDialog');
+  if (dlg) ['recordOpen', 'recordOpen2'].forEach(id => document.getElementById(id)?.addEventListener('click', () => dlg.showModal()));
+  dlg?.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 })();
