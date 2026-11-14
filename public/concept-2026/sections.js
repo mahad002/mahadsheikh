@@ -100,7 +100,33 @@
   reader.addEventListener('click', e => { if (e.target.closest('.rev-close')) { reader.hidden = true; } });
   stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
   stage.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover = true; });
-  stage.addEventListener('pointerleave', () => { hover = false; });
+  // hover (mouse): highlight the card in place and show its full text flat beside it; nothing moves under the pointer
+  const peek = document.getElementById('revPeek');
+  let hot = null;
+  const place = c => {
+    const b = c.getBoundingClientRect(), w = peek.offsetWidth, h = peek.offsetHeight, m = 16;
+    let x = b.right + 14, ox = 'left';
+    if (x + w > innerWidth - m) { x = b.left - w - 14; ox = 'right'; }
+    if (x < m) x = Math.min(Math.max(m, b.left + b.width / 2 - w / 2), innerWidth - w - m);
+    const y = Math.min(Math.max(m + 64, b.top + b.height / 2 - h / 2), innerHeight - h - m);
+    peek.style.setProperty('--px', x + 'px'); peek.style.setProperty('--py', y + 'px'); peek.style.setProperty('--ox', ox);
+  };
+  const clearHot = () => { hot?.classList.remove('is-hot'); hot = null; peek.classList.remove('on'); };
+  stage.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse' || drag) { if (drag) clearHot(); return; }
+    const c = e.target.closest('.rev');
+    if (c === hot) return;
+    clearHot();
+    if (!c) return;
+    hot = c; c.classList.add('is-hot');
+    const bq = c.querySelector('blockquote');
+    if (bq && bq.scrollHeight > bq.clientHeight + 2) {          // only when the card's text is cut off
+      peek.innerHTML = c.outerHTML.replace(' aria-hidden="true"', '').replace(' is-hot', '');
+      place(c); peek.classList.add('on');
+    }
+  });
+  stage.addEventListener('pointerleave', () => { hover = false; clearHot(); });
+  addEventListener('scroll', clearHot, { passive: true });
   const nudge = dir => { let n = 0; const go = () => { rows.forEach((_, k) => pos[k] += dir * 18); if (++n < 24) requestAnimationFrame(go); }; go(); };
   document.getElementById('deckPrev').addEventListener('click', () => nudge(1));
   document.getElementById('deckNext').addEventListener('click', () => nudge(-1));

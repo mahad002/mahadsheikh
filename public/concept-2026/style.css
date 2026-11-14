@@ -466,18 +466,21 @@ footer.site a:hover { color: var(--ink); }
 .rev-stage:focus-visible { outline: 2px solid var(--red); outline-offset: -4px; }
 .rev-plane { position: absolute; inset: 0 -12%; display: flex; flex-direction: column; justify-content: center; gap: 16px; transform: rotateX(16deg) rotateZ(-5deg) rotateY(-4deg); transform-style: preserve-3d; }
 .rev-row { overflow: visible; }
-.rev-track { display: flex; align-items: flex-start; gap: 18px; width: max-content; will-change: transform; transform-style: preserve-3d; }
+.rev-track { display: flex; align-items: flex-start; gap: 18px; width: max-content; will-change: transform; }
 .rev-row:nth-child(2) .rev-track { margin-left: -120px; }
-.rev-plane .rev { flex: none; margin: 0; box-shadow: 0 24px 50px -24px rgba(0,0,0,.8); transition: transform .45s var(--ease-out), border-color .3s, background .3s; }
+.rev-plane .rev { flex: none; margin: 0; box-shadow: 0 24px 50px -24px rgba(0,0,0,.8); transition: border-color .25s, background .25s; }
 .rev-plane .rev.rev-s { width: 250px; }
 .rev-plane .rev.rev-m { width: 330px; }
 .rev-plane .rev.rev-l { width: 410px; }
 .rev-plane .rev { padding: 18px 20px; gap: 10px; }
 .rev-plane .rev blockquote { font-size: 14.5px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-@media (hover: hover) and (pointer: fine) {
-  .rev-plane .rev:hover { transform: translateZ(60px) scale(1.04); border-color: var(--red); background: #1b1b1e; }
-  .rev-plane .rev:hover blockquote { -webkit-line-clamp: unset; color: var(--ink); }
-}
+.rev-plane .rev.is-hot { border-color: var(--red); background: #1b1b1e; transition-duration: .12s; }
+/* full text of the hovered card, flat and readable, beside it (mouse only) */
+.rev-peek { position: fixed; left: 0; top: 0; z-index: 70; width: min(380px, calc(100vw - 32px)); pointer-events: none; opacity: 0; transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(.97); transform-origin: var(--ox, left) top;
+  transition: opacity .14s var(--ease-out), transform .14s var(--ease-out); }
+.rev-peek.on { opacity: 1; transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(1); }
+.rev-peek .rev { width: 100%; border-color: var(--red); background: #1b1b1e; box-shadow: 0 30px 60px -20px rgba(0,0,0,.85); }
+.rev-peek blockquote { display: block !important; -webkit-line-clamp: unset !important; color: var(--ink); font-size: 15.5px; }
 .rev-top small { white-space: nowrap; }
 .rev-top b span { min-width: 0; }
 .deck-ui .pause { margin-top: 0; }
@@ -558,3 +561,7 @@ footer.site .wrap { align-items: center; }
   .record { flex-wrap: wrap; }
   .record-btn { width: 100%; justify-content: center; }
 }
+
+/* pointer hits land on the cards, not the rows or tracks stacked over them in 3D */
+.rev-plane, .rev-row, .rev-track { pointer-events: none; }
+.rev-plane .rev { pointer-events: auto; }
