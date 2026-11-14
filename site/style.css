@@ -566,8 +566,32 @@ footer.site .wrap { align-items: center; }
 .rev-plane, .rev-row, .rev-track { pointer-events: none; }
 .rev-plane .rev { pointer-events: auto; }
 
-/* Inspirovix: 50 clients, the same fill as GreenRock's 9 hires, at a finer grain */
-.team.clients { grid-template-columns: repeat(10, 22px); gap: 7px; justify-content: start; }
-.team.clients i { border-radius: 5px; }
-.team.clients i::after { transition-duration: .45s; transition-delay: calc(var(--i) * 22ms); }
-@media (max-width: 640px) { .team.clients { grid-template-columns: repeat(10, 1fr); gap: 5px; } .team.clients i { border-radius: 4px; } }
+
+/* GreenRock: what the team builds, as a flow (no proprietary screens) */
+.gr-flow { margin-top: auto; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding-top: 8px; }
+.gr-flow::before { content: ""; position: absolute; left: 8%; right: 8%; top: calc(50% + 4px); height: 2px; background: var(--line-2); }
+.gr-flow::after { content: ""; position: absolute; top: calc(50% + 3px); left: 8%; width: 60px; height: 4px; border-radius: 4px; background: linear-gradient(90deg, transparent, var(--red)); animation: grpulse 3.2s var(--ease) infinite; }
+@keyframes grpulse { 0% { transform: translateX(0); opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { transform: translateX(calc(var(--gw, 400px) - 60px)); opacity: 0; } }
+.gr-node { position: relative; z-index: 1; min-height: 84px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--bg); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 10px 8px; gap: 4px; }
+.gr-node span { font-size: 13.5px; font-weight: 600; line-height: 1.25; }
+.gr-node i { font-style: normal; font: 500 11px var(--mono); color: var(--dim); letter-spacing: .04em; }
+.gr-node.hl { border-color: var(--red); background: #1a1212; }
+.gr-node.end { background: var(--red); border-color: var(--red); color: #0A0A0B; }
+.gr-node.end i { color: rgba(10,10,11,.7); }
+
+/* Inspirovix: a fanned stack of real client sites */
+.ix-stack { margin-top: auto; position: relative; height: 210px; }
+.ix-stack img { position: absolute; left: 50%; bottom: 0; width: 56%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 10px; border: 1px solid var(--line-2); box-shadow: 0 24px 40px -18px rgba(0,0,0,.85); transition: transform .5s var(--ease-out); }
+.ix-stack img:nth-child(1) { transform: translateX(-80%) rotate(-6deg) translateY(10px); }
+.ix-stack img:nth-child(2) { transform: translateX(-20%) rotate(6deg) translateY(6px); }
+.ix-stack img:nth-child(3) { transform: translateX(-50%) translateY(-4px); z-index: 2; }
+a.now:hover .ix-stack img:nth-child(1) { transform: translateX(-86%) rotate(-8deg) translateY(4px); }
+a.now:hover .ix-stack img:nth-child(2) { transform: translateX(-14%) rotate(8deg) translateY(0); }
+a.now:hover .ix-stack img:nth-child(3) { transform: translateX(-50%) translateY(-14px); }
+@media (max-width: 640px) {
+  .gr-flow { grid-template-columns: 1fr 1fr; }
+  .gr-flow::before, .gr-flow::after { display: none; }
+  .ix-stack { height: 170px; }
+  .ix-stack img { width: 70%; }
+}
+@media (prefers-reduced-motion: reduce) { .gr-flow::after { display: none; } }
