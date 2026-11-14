@@ -453,22 +453,34 @@ footer.site a:hover { color: var(--ink); }
 .fp-title { font-size: clamp(1.6rem, 3vw, 2.4rem); }
 .fp-hint { font-size: 14px; color: var(--dim); }
 
-/* ---------- feedback deck (Swiper coverflow, collage scatter) ---------- */
-.rev-deck { overflow: visible; padding: 34px 0 40px; margin: 0 calc(-1 * var(--gutter)); }
+/* ---------- feedback collage: cards on a tilted 3D plane ---------- */
 #reviews { overflow: hidden; }
-.rev-deck .swiper-slide { width: min(400px, 78vw); height: auto; display: flex; }
-.rev-deck .rev { width: 100%; margin: 0; min-height: 260px;
-  transform: translateY(calc((var(--k) - 2) * 9px)) rotate(calc((var(--k) - 2) * .7deg));
-  transition: opacity .5s var(--ease), transform .6s var(--ease-out), border-color .4s, background .4s; }
-.rev-deck .swiper-slide:not(.swiper-slide-active) .rev { opacity: .5; }
-.rev-deck .swiper-slide:not(.swiper-slide-active) blockquote { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
-.rev-deck .swiper-slide-active .rev { transform: none; opacity: 1; border-color: var(--red); background: #19191c; }
-.rev-deck .swiper-slide-active .rev:hover { transform: translateY(-2px); }
-.rev-deck .swiper-slide-active blockquote { font-size: 17px; color: var(--ink); }
+.rev-stage { position: relative; height: clamp(600px, 78svh, 760px); margin: 8px calc(-1 * var(--gutter)) 0; perspective: 1700px; cursor: grab; touch-action: pan-y; user-select: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%), linear-gradient(180deg, transparent 0, #000 10%, #000 88%, transparent 100%);
+  -webkit-mask-composite: source-in; mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%), linear-gradient(180deg, transparent 0, #000 10%, #000 88%, transparent 100%); mask-composite: intersect; }
+.rev-stage.dragging { cursor: grabbing; }
+.rev-stage:focus-visible { outline: 2px solid var(--red); outline-offset: -4px; }
+.rev-plane { position: absolute; inset: 0 -12%; display: flex; flex-direction: column; justify-content: center; gap: 16px; transform: rotateX(16deg) rotateZ(-5deg) rotateY(-4deg); transform-style: preserve-3d; }
+.rev-row { overflow: visible; }
+.rev-track { display: flex; align-items: flex-start; gap: 18px; width: max-content; will-change: transform; transform-style: preserve-3d; }
+.rev-row:nth-child(2) .rev-track { margin-left: -120px; }
+.rev-plane .rev { flex: none; margin: 0; box-shadow: 0 24px 50px -24px rgba(0,0,0,.8); transition: transform .45s var(--ease-out), border-color .3s, background .3s; }
+.rev-plane .rev.rev-s { width: 250px; }
+.rev-plane .rev.rev-m { width: 330px; }
+.rev-plane .rev.rev-l { width: 410px; }
+.rev-plane .rev { padding: 18px 20px; gap: 10px; }
+.rev-plane .rev blockquote { font-size: 14.5px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.rev-plane .rev:hover { transform: translateZ(60px) scale(1.04); border-color: var(--red); background: #1b1b1e; }
+.rev-plane .rev:hover blockquote { -webkit-line-clamp: unset; color: var(--ink); }
+.deck-ui .pause { margin-top: 0; }
+@media (max-width: 640px) {
+  .rev-stage { height: 520px; }
+  .rev-plane { inset: 0 -30%; transform: rotateX(12deg) rotateZ(-4deg); }
+  .rev-plane .rev.rev-l { width: 300px; } .rev-plane .rev.rev-m { width: 260px; } .rev-plane .rev.rev-s { width: 210px; }
+}
 .deck-ui { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 8px; }
 .deck-btn { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--ink); transition: background .25s, border-color .25s, transform .2s var(--ease); }
 .deck-btn svg { width: 16px; height: 16px; }
 .deck-btn:hover { background: var(--red); border-color: var(--red); color: #0A0A0B; }
 .deck-btn:active { transform: scale(.94); }
 .deck-btn.swiper-button-disabled { opacity: .35; pointer-events: none; }
-.deck-count { font: 500 13px var(--mono); color: var(--muted); min-width: 70px; text-align: center; font-variant-numeric: tabular-nums; }
