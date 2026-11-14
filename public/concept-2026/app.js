@@ -35,12 +35,6 @@
     });
   }
 
-  /* preview only: ?hero=city or ?hero=campus swaps the hero portrait (the default stays the suit photo) */
-  const heroOpt = new URLSearchParams(location.search).get('hero');
-  const heroImg = document.querySelector('.h-me');
-  if (heroImg && heroOpt === 'city') { heroImg.src = 'img/opt-city.webp'; heroImg.width = 936; heroImg.height = 1401; document.body.classList.add('hero-opt-city'); }
-  if (heroImg && heroOpt === 'campus') { heroImg.src = 'img/opt-campus.webp'; heroImg.width = 821; heroImg.height = 1401; document.body.classList.add('hero-light'); }
-
   /* split the big name into letters for the entrance */
   document.querySelectorAll('.h-name').forEach(n => { n.innerHTML = [...n.textContent].map((c, i) => `<span style="--i:${i}">${c}</span>`).join(''); });
 
