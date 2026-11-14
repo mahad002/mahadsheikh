@@ -55,11 +55,12 @@
   }
 
   /* GreenRock: 0 -> 9, played once when it comes into view */
-  const team = document.getElementById('team');
-  if (team) {
-    team.innerHTML = Array.from({ length: 9 }, (_, i) => `<i style="--i:${i}"></i>`).join('');
-    new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { team.classList.add('on'); o.disconnect(); } }), { threshold: .6 }).observe(team);
-  }
+  // GreenRock: 9 hires; Inspirovix: 50 clients. Each grid fills once when it comes into view
+  [['team', 9], ['clients', 50]].forEach(([id, n]) => {
+    const g = document.getElementById(id); if (!g) return;
+    g.innerHTML = Array.from({ length: n }, (_, i) => `<i style="--i:${i}"></i>`).join('');
+    new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { g.classList.add('on'); o.disconnect(); } }), { threshold: .5 }).observe(g);
+  });
 
   /* pulse length for the AI flow */
   const flow = document.getElementById('flow');

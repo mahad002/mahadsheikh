@@ -565,3 +565,9 @@ footer.site .wrap { align-items: center; }
 /* pointer hits land on the cards, not the rows or tracks stacked over them in 3D */
 .rev-plane, .rev-row, .rev-track { pointer-events: none; }
 .rev-plane .rev { pointer-events: auto; }
+
+/* Inspirovix: 50 clients, the same fill as GreenRock's 9 hires, at a finer grain */
+.team.clients { grid-template-columns: repeat(10, 22px); gap: 7px; justify-content: start; }
+.team.clients i { border-radius: 5px; }
+.team.clients i::after { transition-duration: .45s; transition-delay: calc(var(--i) * 22ms); }
+@media (max-width: 640px) { .team.clients { grid-template-columns: repeat(10, 1fr); gap: 5px; } .team.clients i { border-radius: 4px; } }
