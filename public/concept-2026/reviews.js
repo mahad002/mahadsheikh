@@ -630,7 +630,7 @@ window.REVIEWS = [
 "cc": "ca",
 "r": 5.0,
 "t": "2024-11-10",
-"q": "Working with this seller was an absolute delight. Their skills were truly impressive, delivering a product that not only met but exceeded my expectations. Their attention to detail and dedication to quality were evident in every aspect of their…"
+"q": "Working with this seller was an absolute delight. Their skills were truly impressive, delivering a product that not only met but exceeded my expectations."
 },
 {
 "i": "X",
@@ -662,7 +662,7 @@ window.REVIEWS = [
 "cc": "pk",
 "r": 5.0,
 "t": "2024-08-07",
-"q": "I am thrilled to write this positive review for the exceptional programming service provided by Mahad. From the beginning, it was evident that I was dealing with true professionals. Their expertise, dedication, and commitment to excellence were…"
+"q": "I am thrilled to write this positive review for the exceptional programming service provided by Mahad. From the beginning, it was evident that I was dealing with true professionals."
 },
 {
 "i": "K",
@@ -670,7 +670,7 @@ window.REVIEWS = [
 "cc": "th",
 "r": 5.0,
 "t": "2024-08-07",
-"q": "I had the pleasure of witnessing Mahad’s exceptional work on our hotel amenity stock program, and I must say it was truly impressive. His coding skills and attention to detail were evident throughout the project, resulting in a seamless and…"
+"q": "I had the pleasure of witnessing Mahad’s exceptional work on our hotel amenity stock program, and I must say it was truly impressive."
 },
 {
 "i": "A",
