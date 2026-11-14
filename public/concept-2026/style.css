@@ -495,3 +495,40 @@ footer.site a:hover { color: var(--ink); }
 .rev-reader .rev blockquote { -webkit-line-clamp: unset; display: block; color: var(--ink); font-size: 16px; }
 .rev-close { margin-top: 10px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--muted); font-size: 14px; }
 .rev-close:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ---------- brand strip ---------- */
+.brands { display: flex; align-items: center; gap: clamp(20px, 3vw, 44px); padding: 26px 0 8px; }
+.brands-label { flex: none; font-size: 14px; color: var(--dim); max-width: 10ch; line-height: 1.35; }
+.brands ul { list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 10px clamp(22px, 3.4vw, 52px); }
+.brands a { display: flex; align-items: center; min-height: 44px; }
+.brands img { height: 30px; width: auto; max-width: 150px; object-fit: contain; filter: brightness(0) invert(1); opacity: .62; transition: opacity .3s, transform .3s var(--ease); }
+.brands a:hover img { opacity: 1; transform: translateY(-2px); }
+@media (max-width: 640px) { .brands { flex-direction: column; align-items: flex-start; } .brands img { height: 24px; max-width: 120px; } }
+
+/* ---------- CVs + socials ---------- */
+.cvs { margin-top: 48px; max-width: 980px; }
+.cvs h3 { font-size: 1.3rem; margin-bottom: 14px; }
+.cv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.cv { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 18px 20px; border-radius: var(--r); border: 1px solid var(--line-2); background: var(--bg-2); transition: border-color .25s, transform .25s var(--ease), background .25s; }
+.cv:hover { border-color: var(--red); transform: translateY(-2px); background: #19191c; }
+.cv b { display: block; font-size: 16px; font-weight: 600; }
+.cv i { display: block; font-style: normal; font-size: 13.5px; color: var(--dim); margin-top: 2px; }
+.cv em { flex: none; display: inline-flex; align-items: center; gap: 6px; font: 600 12px var(--mono); font-style: normal; color: var(--red); }
+.cv em svg { width: 15px; height: 15px; }
+.socials { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.socials a { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px 0 7px; border-radius: 999px; border: 1px solid var(--line-2); font-size: 15px; font-weight: 500; transition: border-color .25s, transform .25s var(--ease); }
+.socials a:hover { border-color: var(--ink); transform: translateY(-2px); }
+.socials .ico { width: 34px; height: 34px; border-radius: 50%; background: var(--bone); display: grid; place-items: center; }
+.socials .ico img { width: 18px; height: 18px; }
+.socials .ico-text { font: 800 12px var(--display); color: #0A0A0B; letter-spacing: -.02em; }
+.foot-social { list-style: none; display: flex; gap: 8px; }
+.foot-social a { width: 44px; height: 44px; border-radius: 50%; background: var(--bone); display: grid; place-items: center; transition: transform .25s var(--ease), opacity .25s; min-height: 0; opacity: .8; }
+.foot-social a:hover { opacity: 1; transform: translateY(-2px); }
+.foot-social img { width: 18px; height: 18px; }
+footer.site .wrap { align-items: center; }
+@media (max-width: 900px) { .cv-grid { grid-template-columns: 1fr; } }
+/* even out optical weight: square marks and thin wordmarks read smaller at the same height */
+.brands img[alt="GuruIsOnline"] { height: 40px; }
+.brands img[alt="ISRA AI"] { height: 46px; max-width: 110px; }
+.brands img[alt="Exec Chauffeur Group"] { height: 40px; }
+@media (max-width: 640px) { .brands img[alt="GuruIsOnline"], .brands img[alt="Exec Chauffeur Group"] { height: 32px; } .brands img[alt="ISRA AI"] { height: 36px; } }
