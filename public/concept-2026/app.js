@@ -35,6 +35,12 @@
     });
   }
 
+  /* test only: ?hero=full shows the full-length suit photo, zoomed out (the default stays the head-and-shoulders cut-out) */
+  if (new URLSearchParams(location.search).get('hero') === 'full') {
+    const im = document.querySelector('.h-me');
+    if (im) { im.src = 'img/me-full-mono.webp'; im.width = 932; im.height = 1726; document.body.classList.add('hero-full'); }
+  }
+
   /* split the big name into letters for the entrance */
   document.querySelectorAll('.h-name').forEach(n => { n.innerHTML = [...n.textContent].map((c, i) => `<span style="--i:${i}">${c}</span>`).join(''); });
 
