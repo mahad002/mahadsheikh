@@ -182,7 +182,7 @@ window.REVIEWS = [
 "cc": "my",
 "r": 5.0,
 "t": "2025-07-24",
-"q": "People like him are very rare in this field. He possesses highly professional and technical skills. What distinguishes him is his ability to understand my needs precisely and deal with them with flexibility and creativity. He always exceeds my expectations and delivers exceptional results. I trust him completely and can rely on him for any complex or sensitive project. I am certain that he will be your best choice if you are looking for quality and added value See less"
+"q": "People like him are very rare in this field. He possesses highly professional and technical skills. What distinguishes him is his ability to understand my needs precisely and deal with them with flexibility and creativity. He always exceeds my expectations and delivers exceptional results. I trust him completely and can rely on him for any complex or sensitive project. I am certain that he will be your best choice if you are looking for quality and added value"
 },
 {
 "i": "H",
@@ -366,7 +366,7 @@ window.REVIEWS = [
 "cc": "gb",
 "r": 5.0,
 "t": "2025-05-09",
-"q": "Mahad Sheikh absolutely exceeded expectations in delivering online coding lessons, with unmatched attention to details, expertise, and professionalism. 🌟 Working with him was a breeze due to his proactive communication, deep understanding of concepts, and prompt delivery times. Plus, excellent communication that's both fast and concise. Highly recommend! See less"
+"q": "Mahad Sheikh absolutely exceeded expectations in delivering online coding lessons, with unmatched attention to details, expertise, and professionalism. 🌟 Working with him was a breeze due to his proactive communication, deep understanding of concepts, and prompt delivery times. Plus, excellent communication that's both fast and concise. Highly recommend!"
 },
 {
 "i": "P",
@@ -430,7 +430,7 @@ window.REVIEWS = [
 "cc": "eg",
 "r": 5.0,
 "t": "2025-03-10",
-"q": "Delivery was very quick. I appreciate Mahad's cooperation. Pricing was somewhat competitive compared to what other people demanded for the job. It was a bit much for me, but he didn't haggle and was professional which made for an easy interaction between us. Very efficient and elegant programming. I found cheaper options but Mahad's quick response & proactive attitude made me choose him instead. See less"
+"q": "Delivery was very quick. I appreciate Mahad's cooperation. Pricing was somewhat competitive compared to what other people demanded for the job. It was a bit much for me, but he didn't haggle and was professional which made for an easy interaction between us. Very efficient and elegant programming. I found cheaper options but Mahad's quick response & proactive attitude made me choose him instead."
 },
 {
 "i": "K",
@@ -606,7 +606,7 @@ window.REVIEWS = [
 "cc": "ca",
 "r": 5.0,
 "t": "2024-11-10",
-"q": "I had the pleasure of working with an exceptional coder. Their coding skills are top-notch, and their dedication to the project was outstanding. They consistently delivered high-quality code, and their problem-solving ability was impressive. Communication was smooth, and their commitment to excellence is commendable. I highly recommend this coder for any project. See less"
+"q": "I had the pleasure of working with an exceptional coder. Their coding skills are top-notch, and their dedication to the project was outstanding. They consistently delivered high-quality code, and their problem-solving ability was impressive. Communication was smooth, and their commitment to excellence is commendable. I highly recommend this coder for any project."
 },
 {
 "i": "H",
@@ -630,7 +630,7 @@ window.REVIEWS = [
 "cc": "ca",
 "r": 5.0,
 "t": "2024-11-10",
-"q": "Working with this seller was an absolute delight. Their skills were truly impressive, delivering a product that not only met but exceeded my expectations. Their attention to detail and dedication to quality were evident in every aspect of their... See more"
+"q": "Working with this seller was an absolute delight. Their skills were truly impressive, delivering a product that not only met but exceeded my expectations. Their attention to detail and dedication to quality were evident in every aspect of their…"
 },
 {
 "i": "X",
@@ -662,7 +662,7 @@ window.REVIEWS = [
 "cc": "pk",
 "r": 5.0,
 "t": "2024-08-07",
-"q": "I am thrilled to write this positive review for the exceptional programming service provided by Mahad. From the beginning, it was evident that I was dealing with true professionals. Their expertise, dedication, and commitment to excellence were... See more"
+"q": "I am thrilled to write this positive review for the exceptional programming service provided by Mahad. From the beginning, it was evident that I was dealing with true professionals. Their expertise, dedication, and commitment to excellence were…"
 },
 {
 "i": "K",
@@ -670,7 +670,7 @@ window.REVIEWS = [
 "cc": "th",
 "r": 5.0,
 "t": "2024-08-07",
-"q": "I had the pleasure of witnessing Mahad’s exceptional work on our hotel amenity stock program, and I must say it was truly impressive. His coding skills and attention to detail were evident throughout the project, resulting in a seamless and... See more"
+"q": "I had the pleasure of witnessing Mahad’s exceptional work on our hotel amenity stock program, and I must say it was truly impressive. His coding skills and attention to detail were evident throughout the project, resulting in a seamless and…"
 },
 {
 "i": "A",

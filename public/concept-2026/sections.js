@@ -49,6 +49,7 @@
       <div class="rev-top"><span class="av">${(r.i || '•').charAt(0).toUpperCase()}</span><div><b><img src="flags/${r.cc}.svg" alt="" width="18" height="13"><span>${r.c.replace('Palestinian Territories', 'Palestine')}</span></b><small><span class="rs" aria-label="${r.r} out of 5">${stars(r.r)}</span>${fmt(r.t)}</small></div></div>
       <blockquote>${r.q.replace(/</g, '&lt;')}</blockquote></figure>`;
   };
+  const pb = document.getElementById('revPause');
   let rows = [], pos = [], half = [], speed = [], drag = 0, dragV = 0, paused = reduce, hover = false, visible = true;
   const render = () => {
     const list2 = R.filter(r => filter === 'all' || (filter === 'rest' ? counts[r.cc].n < 4 : r.cc === filter));
@@ -84,9 +85,19 @@
   new IntersectionObserver(es => es.forEach(e => visible = e.isIntersecting)).observe(stage);
   // drag (mouse and touch) slides every row together
   let lastX = null;
-  stage.addEventListener('pointerdown', e => { lastX = e.clientX; drag = 1; stage.setPointerCapture(e.pointerId); stage.classList.add('dragging'); });
+  let startX = 0, startCard = null;
+  stage.addEventListener('pointerdown', e => { lastX = startX = e.clientX; startCard = e.target.closest('.rev'); drag = 1; try { stage.setPointerCapture(e.pointerId); } catch {} stage.classList.add('dragging'); });
   stage.addEventListener('pointermove', e => { if (lastX === null) return; const d = e.clientX - lastX; lastX = e.clientX; rows.forEach((_, k) => pos[k] += d * 1.4); dragV = d * 0.5; });
-  const up = () => { lastX = null; drag = 0; stage.classList.remove('dragging'); };
+  const reader = document.getElementById('revReader');
+  const up = e => {
+    // a tap (no real drag) on a touch screen opens that card's full text below the wall
+    if (e && e.type === 'pointerup' && e.pointerType !== 'mouse' && startCard && Math.abs(e.clientX - startX) < 8) {
+      reader.innerHTML = startCard.outerHTML.replace(' aria-hidden="true"', '') + '<button class="rev-close" aria-label="Close">Close</button>';
+      reader.hidden = false; paused = true; pb.setAttribute('aria-pressed', true); pb.querySelector('span').textContent = 'Play';
+    }
+    lastX = null; drag = 0; startCard = null; stage.classList.remove('dragging');
+  };
+  reader.addEventListener('click', e => { if (e.target.closest('.rev-close')) { reader.hidden = true; } });
   stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
   stage.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover = true; });
   stage.addEventListener('pointerleave', () => { hover = false; });
@@ -95,7 +106,6 @@
   document.getElementById('deckNext').addEventListener('click', () => nudge(-1));
   stage.tabIndex = 0;
   stage.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') { nudge(1); e.preventDefault(); } if (e.key === 'ArrowRight') { nudge(-1); e.preventDefault(); } });
-  const pb = document.getElementById('revPause');
   if (reduce) { pb.setAttribute('aria-pressed', true); pb.querySelector('span').textContent = 'Play'; }
   pb.addEventListener('click', () => { paused = !paused; pb.setAttribute('aria-pressed', paused); pb.querySelector('span').textContent = paused ? 'Play' : 'Pause'; });
   let lastW = innerWidth; addEventListener('resize', () => { if ((innerWidth < 640) !== (lastW < 640)) render(); lastW = innerWidth; });
