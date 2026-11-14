@@ -180,6 +180,18 @@
     "markUrl": "https://github.com/"
   },
   {
+    "file": "github.svg",
+    "icon": "si:github",
+    "name": "GitHub",
+    "kind": "mono",
+    "source": "simple-icons@16.30.0",
+    "author": "Simple Icons Collaborators",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/simple-icons/simple-icons",
+    "trademark": true,
+    "colour": "one-colour fallback in the brand hex"
+  },
+  {
     "file": "go.svg",
     "icon": "logos:go",
     "name": "Go",
@@ -238,6 +250,18 @@
     "url": "https://github.com/gilbarbara/logos",
     "trademark": true,
     "markUrl": "https://instagram.com/"
+  },
+  {
+    "file": "instagram.svg",
+    "icon": "si:instagram",
+    "name": "Instagram",
+    "kind": "mono",
+    "source": "simple-icons@16.30.0",
+    "author": "Simple Icons Collaborators",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/simple-icons/simple-icons",
+    "trademark": true,
+    "colour": "one-colour fallback in the brand hex"
   },
   {
     "file": "java.svg",
@@ -540,6 +564,18 @@
     "markUrl": "https://www.spotify.com/"
   },
   {
+    "file": "spotify.svg",
+    "icon": "si:spotify",
+    "name": "Spotify",
+    "kind": "mono",
+    "source": "simple-icons@16.30.0",
+    "author": "Simple Icons Collaborators",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/simple-icons/simple-icons",
+    "trademark": true,
+    "colour": "one-colour fallback in the brand hex"
+  },
+  {
     "file": "supabase-icon.svg",
     "icon": "logos:supabase-icon",
     "name": "Supabase",
@@ -588,6 +624,17 @@
     "markUrl": "https://www.typescriptlang.org/"
   },
   {
+    "file": "ui-linkedin.svg",
+    "icon": "ui:linkedin",
+    "name": "Linkedin",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
     "file": "v0.svg",
     "icon": "logos:v0",
     "name": "V",
@@ -634,5 +681,17 @@
     "url": "https://github.com/gilbarbara/logos",
     "trademark": true,
     "markUrl": "https://www.youtube.com/"
+  },
+  {
+    "file": "youtube.svg",
+    "icon": "si:youtube",
+    "name": "YouTube",
+    "kind": "mono",
+    "source": "simple-icons@16.30.0",
+    "author": "Simple Icons Collaborators",
+    "licence": "CC0-1.0",
+    "url": "https://github.com/simple-icons/simple-icons",
+    "trademark": true,
+    "colour": "one-colour fallback in the brand hex"
   }
 ]
