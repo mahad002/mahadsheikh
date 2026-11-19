@@ -623,3 +623,6 @@ a.now:hover .ix-stack img:nth-child(3) { transform: translateX(-50%) translateY(
 
 /* ---------- performance: nothing animates while it is off-screen ---------- */
 .is-off .lane, .gr-flow.is-off::after, .flow.is-off::after { animation-play-state: paused; }
+/* the clients stat carries a country list: let it use its whole cell */
+.proof div:nth-child(2) span { max-width: none; padding-right: 8px; text-wrap: pretty; }
+.contact .reloc { margin-top: 22px; color: var(--muted); font-size: 1.05rem; max-width: 52ch; }
